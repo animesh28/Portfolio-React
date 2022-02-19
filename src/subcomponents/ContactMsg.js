@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import Email from '../components/AllSvgs'
 import { motion } from 'framer-motion'
 
 const Contact = styled.div`
-  color: ${props => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 2rem;
   right: calc(1rem + 2vw);
@@ -23,10 +23,14 @@ const Line = styled(motion.span)`
 `
 
 
-function ContactMsg() {
+function ContactMsg(props) {
+  const [dropEmail, setDropEmail] = useState(false)
   return (
-    <Contact >
-        <motion.h2
+    <Contact 
+      click={props.click}
+      onClick={() => setDropEmail(!dropEmail)}
+    >
+        <motion.h3
           initial={{
             y: -200,
             transition: {type: 'spring', duration: 1.5, delay: 1}
@@ -39,29 +43,60 @@ function ContactMsg() {
           whileTap={{scale: 0.9}}
         >
             Say Hi...
-        </motion.h2>
-        <Line
+        </motion.h3>
+        {dropEmail ?
+          <Line
+          
           initial={{
             height: 0,
-            transition: {type: 'spring', duration: 1.5, delay: 1}
+            transition: {type: 'spring', duration: 1.5, delay: 0}
           }}
           animate={{
             height: '8rem',
-            transition: {type: 'spring', duration: 1.5, delay: 1}
+            transition: {type: 'spring', duration: 1.5, delay: 0}
           }}
-        />
-        <Email 
+        />: 
+        <Line
+          
         initial={{
-          y: 200,
-          opacity: 0,
-          transition: {type: 'spring', duration: 1.5, delay: 1}
+          height: '8rem',
+          transition: {type: 'spring', duration: 1.5, delay: 0}
         }}
         animate={{
-          y: 0,
-          opacity: 1,
-          transition: {type: 'spring', duration: 1.5, delay: 1}
+          height: 0,
+          transition: {type: 'spring', duration: 1.5, delay: 0}
         }}
-        style={{marginTop: "-40px"}}/>
+      />
+        
+        }
+        {dropEmail ?
+          <Email 
+          initial={{
+            y: 200,
+            opacity: 0,
+            transition: {type: 'spring', duration: 1.5, delay: 0}
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+            transition: {type: 'spring', duration: 1.5, delay: 0}
+          }}
+          style={{marginTop: "-40px"}}/>
+        :
+        <Email 
+          initial={{
+            y: 0,
+            opacity: 1,
+            transition: {type: 'spring', duration: 1.5, delay: 0}
+          }}
+          animate={{
+            y: 200,
+            opacity: 0,
+            transition: {type: 'spring', duration: 1.5, delay: 0}
+          }}
+          style={{marginTop: "-40px"}}/>
+        }
+        
     </Contact>
   )
 }
