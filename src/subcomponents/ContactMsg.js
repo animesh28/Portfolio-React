@@ -28,7 +28,6 @@ function ContactMsg(props) {
   return (
     <Contact 
       click={props.click}
-      onClick={() => setDropEmail(!dropEmail)}
     >
         <motion.h3
           initial={{
@@ -41,6 +40,7 @@ function ContactMsg(props) {
           }}
           whileHover={{scale: 1.1}}
           whileTap={{scale: 0.9}}
+          onClick={() => setDropEmail(!dropEmail)}
         >
             Say Hi...
         </motion.h3>
