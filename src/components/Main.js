@@ -258,8 +258,8 @@ function Main() {
               </motion.h2>
             </Blog>
           )}
-
-          <Work click={+YinYang} to="/work">
+        
+          <Work click={+YingYang} to="/work">
             <motion.h2
               onClick={() => setpath("work")}
               initial={{
