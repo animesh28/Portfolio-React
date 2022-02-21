@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 export const PowerBtn = (props) => {
     return (
       <svg

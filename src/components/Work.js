@@ -76,21 +76,12 @@ const CircleWrap = styled.div`
     }
 `
 
-const circlePathWrap = styled.div`
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-`
-
 function Work() {
-    let t1 = new Timeline({delay: 0.3})
-    
-
-    gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
+        let t1 = new Timeline({delay: 0.3})
+        gsap.registerPlugin(ScrollTrigger);
+
         t1.to('#img-wrap_2', {
             duration: 3,
             y: '-100vh',
@@ -115,7 +106,6 @@ function Work() {
             scrub: true,
             pin: true,
             anticipatePin: 1,
-            markers: true
         })
             
             

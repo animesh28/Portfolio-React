@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Email from '../components/AllSvgs'
 import { motion } from 'framer-motion'
 
+
 const Contact = styled.div`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
@@ -20,6 +21,10 @@ const Line = styled(motion.span)`
     width: 2.5px;
     height: 10rem;
     background-color: ${props => props.theme.text};
+`
+
+const EmailIcon = styled(Email)`
+  visibility: hidden;
 `
 
 
@@ -88,17 +93,12 @@ function ContactMsg(props) {
           style={{marginTop: "-40px"}}/>
         :
         <Email 
-          initial={{
-            y: 0,
-            opacity: 1,
-            transition: {type: 'spring', duration: 1.5, delay: 0}
-          }}
-          animate={{
-            y: 200,
-            opacity: 0,
-            transition: {type: 'spring', duration: 1.5, delay: 0}
-          }}
-          style={{marginTop: "-40px"}}/>
+          
+          style={{
+            marginTop: "-40px", 
+            opacity: 0, 
+            visibility: 'hidden',
+          }}/>
         }
         
     </Contact>
