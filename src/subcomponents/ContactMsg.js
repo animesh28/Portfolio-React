@@ -4,6 +4,7 @@ import Email from '../components/AllSvgs'
 import { motion } from 'framer-motion'
 
 
+
 const Contact = styled.div`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
@@ -21,10 +22,6 @@ const Line = styled(motion.span)`
     width: 2.5px;
     height: 10rem;
     background-color: ${props => props.theme.text};
-`
-
-const EmailIcon = styled(Email)`
-  visibility: hidden;
 `
 
 
