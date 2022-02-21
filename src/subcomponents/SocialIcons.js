@@ -17,17 +17,24 @@ const Icons = styled.div`
     & > *:not(:last-child) {
         margin: .5rem 0;
     }
+
+    & > div > a > svg {
+        filter: ${(props) => (props.click ? "drop-shadow(0 0 4px rgba(0,0,0,.5))" : "none")};
+    }
 `
 
 const Line = styled(motion.span)`
     width: 2px;
     height: 8rem;
     background-color: ${props => props.color === "dark" ? darkTheme.text : darkTheme.body};
+    box-shadow: ${(props) => (props.click ? "0 0 4px #000" : "none")};
 `
 
 function SocialIcons(props) {
   return (
-    <Icons>
+    <Icons
+        click={props.click}
+    >
         <motion.div
             initial={{
                 transform: 'scale(0)'
@@ -106,7 +113,9 @@ function SocialIcons(props) {
             transition={{
                 type: 'spring', duration: 1, delay: .8
             }}
-            color={props.theme}/>
+            color={props.theme}
+            click={props.click}
+            />
     </Icons>
   )
 }

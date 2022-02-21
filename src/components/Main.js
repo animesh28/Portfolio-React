@@ -107,6 +107,7 @@ const Work = styled(NavLink)`
   transform: translate(-50%, -50%) rotate(-90deg);
   z-index: 1;
   text-decoration: none;
+  text-shadow: ${(props) => (props.click ? "0 0 4px #000" : "none")};
   @media only screen and (max-width: 50em) {
     text-shadow: ${(props) => (props.click ? "0 0 4px #000" : "none")};
   }
@@ -126,6 +127,7 @@ const About = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
+  text-shadow: ${(props) => (props.click ? "0 0 4px #000" : "none")};
 `;
 const Skills = styled(NavLink)`
   color: ${(props) => props.theme.text};
@@ -189,9 +191,9 @@ function Main() {
           <LogoComponent theme={YingYang ? "dark" : "light"} />
           <PowerButton />
           {mq ? (
-            <SocialIcons theme="light" />
+            <SocialIcons click={YingYang} theme="light" />
           ) : (
-            <SocialIcons theme={YingYang ? "dark" : "light"} />
+            <SocialIcons click={YingYang} theme={YingYang ? "dark" : "light"} />
           )}
           <Center click={YingYang}>
             {mq ? (

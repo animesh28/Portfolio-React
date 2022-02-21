@@ -48,10 +48,12 @@ function ContactMsg(props) {
           <Line
           
           initial={{
+            visibility: 'hidden',
             height: 0,
             transition: {type: 'spring', duration: 1.5, delay: 0}
           }}
           animate={{
+            visibility: 'visible',
             height: '8rem',
             transition: {type: 'spring', duration: 1.5, delay: 0}
           }}
@@ -59,10 +61,12 @@ function ContactMsg(props) {
         <Line
           
         initial={{
+          visibility: 'hidden',
           height: '8rem',
           transition: {type: 'spring', duration: 1.5, delay: 0}
         }}
         animate={{
+          visibility: 'visible',
           height: 0,
           transition: {type: 'spring', duration: 1.5, delay: 0}
         }}

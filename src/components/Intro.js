@@ -153,6 +153,10 @@ const Text = styled(motion.div)`
   flex-direction: column;
   justify-content: space-evenly;
 
+  ${mediaQueries(40)`
+        padding-top: .5rem;
+  `};
+
   & > *:last-child {
     color: ${(props) => `rgba(${props.theme.bodyRgba},0.6)`};
 

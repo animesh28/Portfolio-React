@@ -199,7 +199,7 @@ export const PowerBtn = (props) => {
 
 
   export const Email = (props) => (
-    <motion.svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="96.3 -4.7 45.1 46.2"
       style={{
@@ -247,7 +247,9 @@ export const PowerBtn = (props) => {
         className="st4"
         d="M140.3 11.2c-5.4 3.7-21.4 14.8-21.4 14.8.2.1 18.2 12.7 21.3 14.8.7-.6 1.2-1.4 1.2-2.3v-25c-.1-.9-.5-1.7-1.1-2.3z"
       />
-    </motion.svg>
+    </svg>
   )
   
   export default Email
+  
+  
