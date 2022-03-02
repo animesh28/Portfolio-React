@@ -147,11 +147,11 @@ const DarkDiv = styled.div`
   ${(props) =>
     props.click
       ? mediaQueries(50)`
-       height: 50%;
-  right:0;
-  
-  width: 100%;
-  transition: width 0.5s ease, height 1s ease 0.5s;
+        height: 50%;
+        right:0;
+        
+        width: 100%;
+        transition: width 0.5s ease, height 1s ease 0.5s;
 
   `
       : mediaQueries(50)`

@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PowerBtn } from '../components/AllSvgs'
+import { NavLink } from 'react-router-dom'
 
 function PowerButton() {
   return (
     <Power>
-      <PowerBtn width={30} height={30} fill="currentColor"/>
+      <NavLink to="/">
+        <PowerBtn width={30} height={30} fill="currentColor"/>
+      </NavLink>
     </Power>
 
   )
@@ -29,7 +32,7 @@ const Power = styled.button`
   align-items: center;
   cursor: pointer;
   transition: all .3s ease-in;
-  z-index: 3;
+  z-index: 30;
 
   &:hover {
     background: rgba(0, 255, 0, .4);

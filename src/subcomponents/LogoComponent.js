@@ -5,7 +5,7 @@ import { darkTheme } from '../components/Themes'
 
 function LogoComponent(props) {
   return (
-    <Logo color={props.theme}>
+    <Logo color={props.theme} className="logo">
         AKS
     </Logo>
   )
@@ -18,7 +18,7 @@ const Logo = styled.h1`
     position: fixed;
     top: 2rem;
     left: 2rem;
-    z-index: 3;
+    z-index: 30;
 `
 
 export default LogoComponent
