@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState, useEffect, useRef } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 import LogoComponent from '../subcomponents/LogoComponent'
 import PowerButton from '../subcomponents/PowerButton'
@@ -10,8 +10,18 @@ import design from '../assets/Images/design.png'
 import designLogo from '../assets/Images/designLogo.png'
 import dev from '../assets/Images/dev.png'
 import devLogo from '../assets/Images/devLogo.png'
+import htmlIcon from '../assets/Images/htmlIcon.png'
+import cssIcon from '../assets/Images/cssIcon.png'
 import jsIcon from '../assets/Images/jsIcon.gif'
 import reactIcon from '../assets/Images/reactIcon.gif'
+import designMiddle from '../assets/Images/designIcon.png'
+import devMiddle from '../assets/Images/devMiddle.png'
+import phpIcon from '../assets/Images/phpIcon.png'
+import sqlIcon from '../assets/Images/sqlIcon.png'
+import nodeIcon from '../assets/Images/nodeIcon.png'
+import mongoIcon from '../assets/Images/mongoIcon.png'
+import CardComponent from '../subcomponents/Card'
+
 const Box = styled.div`
     width: 100vw;
     height: 100vh;
@@ -38,83 +48,6 @@ const Box = styled.div`
   `};
 `
 
-const Design = styled.div`
-  color: ${(props) => props.theme.text};
-  background: rgba(255, 255, 255, .65);
-  padding: 2rem;
-  width: 26vw;
-  height: 60vh;
-  z-index: 3;
-  line-height: 1.5;
-  border-radius: 16px;
-  cursor: pointer;
-  perspective: 150rem;
-  -moz-perspective: 150rem;
-
-  div.designSide {
-    transition: all .8s ease;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-    border-radius: 16px;
-  }
-
-  
-
-  ${mediaQueries(60)`
-            height: 55vh;
-  `};
-
-  ${mediaQueries(50)`
-              width: 50vw;
-              height: max-content;
-
-  `};
-
-  
-  
-  &:hover .designFront{
-    transform: rotateY(-180deg);
-  }
-
-
-  &:hover .designBack{
-    transform: rotateY(0deg);
-  }
-`
-const DesignFront = styled.div`
-  font-family: "Ubuntu Mono", monospace;
-
-`
-const DesignBack = styled.div`
-    transform: rotateY(180deg);
-
-    div.icon-row {
-    display: flex;
-    justify-content: space-between;
-    }
-
-    img.icon {
-      width: 70px;
-    }
-
-    img.middleIcon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-`
-
-const Dev = styled(Design)``
-
 const BgHeading = styled(motion.h1)`
     position: fixed;
     top: 78%;
@@ -124,31 +57,6 @@ const BgHeading = styled(motion.h1)`
     z-index: 0;
 `
 
-const DesignImg = styled.img`
-  height: 90%
-`
-
-const DevImg = styled(DesignImg)`
-  
-`
-
-const DesignTitle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-
-  img {
-    width: 50px;
-  }
-
-  span {
-    font-size: 25px;
-    margin-left: 13px;
-  }
-`
-
-const DevTitle = styled(DesignTitle)``
 
 const IconLicense = styled.div`
   width: 60px;
@@ -198,8 +106,6 @@ const IconLicense = styled.div`
   }
 `
 
-
-
 function MySkills() {
 
   const [questionMark, setQuestionMark] = useState(null)
@@ -238,6 +144,11 @@ function MySkills() {
               <a href="https://icons8.com/icon/hKrJAdwqbGgG/javascript">JavaScript icon by Icons8</a>
               <a href="https://icons8.com/icon/YYYhFVbH4vFv/react-native">React Native icon by Icons8</a>
               <a href="https://icons8.com/icon/QeAlg41wwUkb/design">Design icon by Icons8</a>
+              <a href="https://icons8.com/icon/p7o7QWCx7SvS/coding">Coding icon by Icons8</a>
+              <a href="https://icons8.com/icon/1q0xlAMYQeet/php-server">PHP Server icon by Icons8</a>
+              <a href="https://icons8.com/icon/39858/mysql-logo">MySQL Logo icon by Icons8</a>
+              <a href="https://icons8.com/icon/t9oCxEN7McHZ/nodejs">Nodejs icon by Icons8</a>
+              <a href="https://icons8.com/icon/Y9VdL7V5XPIc/mongodb-a-cross-platform-document-oriented-database-program">MongoDB a cross-platform document-oriented database program icon by Icons8</a>
             </div>
             <img 
               src="https://img.icons8.com/dotty/80/000000/question-mark.png" 
@@ -248,38 +159,25 @@ function MySkills() {
           <LogoComponent/>
           <PowerButton/>
           <ParticleComponent theme='light'/>
-            <Design>
-              <DesignFront className='designSide designFront'>
-                <DesignImg src={design}/>
-                <DesignTitle>
-                  <img src={designLogo} />
-                  <span>Web Design</span>
-                </DesignTitle>
-              </DesignFront>
-              <DesignBack className='designSide designBack'>
-                <div className='icon-row'>
-                  <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-html-programming-and-coding-flatart-icons-outline-flatarticons-4.png" className='icon'/>
+            <CardComponent
+              img={design}
+              logo={designLogo}
+              middleIcon={designMiddle}
+              icon1={htmlIcon}
+              icon2={cssIcon}
+              icon3={jsIcon}
+              icon4={reactIcon}
+            />
 
-                  <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-css-programming-and-coding-flatart-icons-outline-flatarticons.png" className="icon"/>
-                </div>
-
-                <img src="https://img.icons8.com/external-sbts2018-mixed-sbts2018/58/000000/external-design-design-thinking2-sbts2018-mixed-sbts2018-5.png" className='icon middleIcon'/>
-
-                <div className='icon-row'>
-                  <img src={jsIcon} className='icon'/>
-                  <img src={reactIcon} className='icon'/>
-                </div>
-              </DesignBack>
-            </Design>
-            
-            <Dev>
-              <DevImg src={dev}/>
-
-              <DesignTitle>
-                  <img src={devLogo} />
-                  <span>Web Development</span>
-                </DesignTitle>
-            </Dev>
+            <CardComponent
+              img={dev}
+              logo={devLogo}
+              middleIcon={devMiddle}
+              icon1={phpIcon}
+              icon2={sqlIcon}
+              icon3={nodeIcon}
+              icon4={mongoIcon}
+            />
             <BgHeading
               initial={{y: '150px'}}
               animate={{y: '0'}}
