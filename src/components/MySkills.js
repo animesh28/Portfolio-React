@@ -67,6 +67,7 @@ const IconLicense = styled.div`
   bottom: 2.5rem;
   right: 2.5rem;
   cursor: pointer;
+  z-index: 10;
 
   img{
     max-height: 100%;
@@ -78,7 +79,7 @@ const IconLicense = styled.div`
     right: 8rem;
     background-color: rgba(0, 0, 0, .65);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding: 1rem;
     border-radius: 10px;
     visibility: hidden;
@@ -91,7 +92,7 @@ const IconLicense = styled.div`
       width: 30px;
       height: 30px;
       position: absolute;
-      top: 50%;
+      top: 81%;
       right: -35px;
       transform: translateY(-50%);
       background-color: rgba(0, 0, 0, .65);
@@ -148,7 +149,7 @@ function MySkills() {
               <a href="https://icons8.com/icon/1q0xlAMYQeet/php-server">PHP Server icon by Icons8</a>
               <a href="https://icons8.com/icon/39858/mysql-logo">MySQL Logo icon by Icons8</a>
               <a href="https://icons8.com/icon/t9oCxEN7McHZ/nodejs">Nodejs icon by Icons8</a>
-              <a href="https://icons8.com/icon/Y9VdL7V5XPIc/mongodb-a-cross-platform-document-oriented-database-program">MongoDB a cross-platform document-oriented database program icon by Icons8</a>
+              <a href="https://icons8.com/icon/Y9VdL7V5XPIc/mongodb-a-cross-platform-document-oriented-database-program">MongoDB icon by Icons8</a>
             </div>
             <img 
               src="https://img.icons8.com/dotty/80/000000/question-mark.png" 

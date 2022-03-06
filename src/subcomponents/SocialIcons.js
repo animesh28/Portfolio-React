@@ -34,6 +34,7 @@ function SocialIcons(props) {
   return (
     <Icons
         click={props.click}
+        style={{...props.style}}
     >
         <motion.div
             initial={{

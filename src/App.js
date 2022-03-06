@@ -14,6 +14,7 @@ function App() {
   const WorkPage = lazy(() => import("./components/Work"))
   const BlogPage = lazy(() => import("./components/Blog"))
   const SkillsPage = lazy(() => import("./components/MySkills"))
+  const About = lazy(() => import("./components/About"))
 
   return <>
     <GlobalStyles/>
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/work" component={WorkPage} />
           <Route exact path="/blog" component={BlogPage} />
           <Route exact path="/skills" component={SkillsPage} />
+          <Route exact path="/about" component={About} />
         </Switch>
         </AnimatePresence>
       </Suspense>
