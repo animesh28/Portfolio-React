@@ -1,3 +1,8 @@
+import { useRef, useEffect } from "react"
+import { TimelineLite } from "gsap/gsap-core"
+import { Back } from "gsap"
+import { TweenLite } from "gsap/gsap-core"
+
 export const PowerBtn = (props) => {
     return (
       <svg
@@ -197,7 +202,57 @@ export const PowerBtn = (props) => {
   }
 
 
-  export const Email = (props) => (
+
+  export const Email = (props) => {
+
+    useEffect(() => {
+      var line1 = document.querySelector('#env-line-1');
+      var line2 = document.querySelector('#env-line-2');
+      var line3 = document.querySelector('#env-line-3');
+      var mailIcon = document.querySelector('#mail-icon');
+      var envLid = document.querySelector('#env-lid');
+      var envPaper = document.querySelector('#env-paper');
+
+      var tl = new TimelineLite({
+        paused:true,
+      });
+
+      TweenLite.defaultEase = Back.easeOut;
+        
+      tl 
+        .to(envLid, 0.3, {
+          scaleY:-1,
+          y: 1.5,
+          }
+        )
+        .fromTo(envPaper, 0.4, {
+          transformOrigin: "50% 100%",
+          scaleY:0,
+        },{
+          scaleY: 1,
+        }, "=-0.25")
+        .staggerFromTo([line1, line2, line3], 0.3, {
+          transformOrigin: "50% 50%",
+          scaleX: 0
+        },{
+          scaleX: 1,
+        },	-0.09)
+
+        mailIcon.addEventListener('click', (event) => {
+          if(mailIcon.classList.contains('toggled')) {
+            tl.reverse()
+          } else {
+            tl.play()
+          }
+
+          mailIcon.classList.toggle('toggled')
+        })
+    
+    }, [])
+    
+    
+
+    return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="96.3 -4.7 45.1 46.2"
@@ -247,8 +302,6 @@ export const PowerBtn = (props) => {
         d="M140.3 11.2c-5.4 3.7-21.4 14.8-21.4 14.8.2.1 18.2 12.7 21.3 14.8.7-.6 1.2-1.4 1.2-2.3v-25c-.1-.9-.5-1.7-1.1-2.3z"
       />
     </svg>
-  )
-  
-  export default Email
+  )}
   
   

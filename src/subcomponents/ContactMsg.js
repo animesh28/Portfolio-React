@@ -1,12 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
-import Email from '../components/AllSvgs'
+import { Email } from '../components/AllSvgs'
 import { motion } from 'framer-motion'
-import { Back } from 'gsap/all'
-import {Timeline} from 'gsap/gsap-core'
-
-
-
 
 const Contact = styled.div`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
@@ -30,7 +25,6 @@ const Line = styled(motion.span)`
 
 function ContactMsg(props) {
   const [dropEmail, setDropEmail] = useState(false)
-
   return (
     <Contact 
       click={props.click}
