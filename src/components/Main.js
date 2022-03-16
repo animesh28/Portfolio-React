@@ -86,7 +86,7 @@ const Center = styled.button`
 `;
 
 
-const Blog = styled(NavLink)`
+const Contact = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
@@ -226,7 +226,7 @@ function Main() {
           )}
 
           {mq ? (
-            <Blog click={+YingYang} onClick={() => setpath("blog")} to="/blog">
+            <Contact click={+YingYang} onClick={() => setpath("blog")} to="/contact">
               <motion.h2
                 initial={{
                   y: -200,
@@ -239,11 +239,11 @@ function Main() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                Blog
+                Contact
               </motion.h2>
-            </Blog>
+            </Contact>
           ) : (
-            <Blog click={+false} onClick={() => setpath("blog")} to="/blog">
+            <Contact click={+false} onClick={() => setpath("blog")} to="/contact">
               <motion.h2
                 initial={{
                   y: -200,
@@ -256,9 +256,9 @@ function Main() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                Blog
+                Contact
               </motion.h2>
-            </Blog>
+            </Contact>
           )}
         
           <Work click={+YingYang} to="/work">

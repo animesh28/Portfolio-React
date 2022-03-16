@@ -12,7 +12,7 @@ function App() {
   const location = useLocation()
   const MainPage = lazy(() => import("./components/Main"))
   const WorkPage = lazy(() => import("./components/Work"))
-  const BlogPage = lazy(() => import("./components/Blog"))
+  const ContactPage = lazy(() => import("./components/Contact"))
   const SkillsPage = lazy(() => import("./components/MySkills"))
   const About = lazy(() => import("./components/About"))
 
@@ -25,7 +25,7 @@ function App() {
         <Switch location={location} key={location.pathname}>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/work" component={WorkPage} />
-          <Route exact path="/blog" component={BlogPage} />
+          <Route exact path="/contact" component={ContactPage} />
           <Route exact path="/skills" component={SkillsPage} />
           <Route exact path="/about" component={About} />
         </Switch>
