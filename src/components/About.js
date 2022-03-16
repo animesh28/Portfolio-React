@@ -2,18 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import LogoComponent from '../subcomponents/LogoComponent'
 import PowerButton from '../subcomponents/PowerButton'
-import aboutCover from '../assets/Images/aboutCover.png'
 import { LinkedIn, Github, Whatsapp } from './AllSvgs'
-import SocialIcons from '../subcomponents/SocialIcons'
 import AboutTimeline from '../subcomponents/Timeline'
-import { styled as styledMui } from '@mui/system'
-import { Translate } from '@mui/icons-material'
 import elon from '../assets/Images/elon.jpg'
 import sign from '../assets/Images/signature.png'
 import hey from '../assets/Images/hey.png'
 import call from '../assets/Images/call.gif'
 import mail from '../assets/Images/mail.gif'
-import sky from '../assets/Images/sky.jpg'
+import { motion } from 'framer-motion'
+import { NavLink } from 'react-router-dom'
 
 const AboutWrap = styled.div`
     padding: 2.5rem;
@@ -35,8 +32,8 @@ const SocialWrap = styled.div`
     width: auto;
 
     & > * {
-        width: 35px;
-        height: 35px;
+        width: 20px;
+        height: 20px;
         margin: 0 10px;
         cursor: pointer;
     }
@@ -149,7 +146,7 @@ const AboutQuote = styled.h1`
     }
 `
 
-const ImgFrame = styled.div`
+const ImgFrame = styled(motion.div)`
     width: 100%;
     height: 100%;
     position: absolute;
@@ -171,15 +168,7 @@ const AboutEmoji = styled.div`
     z-index: 4;
     
 
-    &:hover {
-        img {
-            transform: rotate(-13deg);
-        }
-
-        ${ImgFrame} {
-            transform: rotate(13deg);
-        }
-    }
+   
 
     img {
         border-radius: 80px;
@@ -220,7 +209,7 @@ const QuoteWrap = styled.div`
     height: 100%;
 `
 
-const QuoteName = styled.div`
+const QuoteName = styled(motion.div)`
   display: flex;
   flex-direction: column;
   margin: 0 15px;
@@ -267,8 +256,6 @@ const ContactInfo = styled.div`
           left: 50%;
           transform: translateX(-50%);
           border-radius: 50%;
-          opacity: 0;
-          visibility: hidden;
           transition: all .5s ease-in;
       }
       
@@ -278,13 +265,6 @@ const ContactInfo = styled.div`
             background-size: 25px;
             background-position-x: center;
             background-position-y: 5px;
-        }
-
-        &:hover {
-            &::before {
-                opacity: 1;
-                visibility: visible;
-            }
         }
       }
 
@@ -316,9 +296,59 @@ function About() {
         <LogoComponent/>
         <PowerButton/>
         <SocialWrap>
-            <Whatsapp style={{fill: '#fff'}}/>
-            <Github style={{fill: '#fff'}}/>
-            <LinkedIn style={{fill: '#fff'}}/>
+        <motion.div
+            initial={{
+                transform: 'scale(0)'
+            }}
+            animate= {{
+                scale:[0,1,1.5,1]
+            }}
+            transition={{
+                type: 'spring',
+                duration: 1,
+                delay: 1
+            }}
+        >
+            <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
+                <Whatsapp height={25} width={25} style={{fill: '#fff'}}/>
+            </NavLink>
+        </motion.div>
+
+        <motion.div
+            initial={{
+                transform: 'scale(0)'
+            }}
+            animate= {{
+                scale:[0,1,1.5,1]
+            }}
+            transition={{
+                type: 'spring',
+                duration: 1,
+                delay: 1.2
+            }}
+        >
+            <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
+                <Github height={25} width={25} style={{fill: '#fff'}}/>
+            </NavLink>
+        </motion.div>
+
+        <motion.div
+            initial={{
+                transform: 'scale(0)'
+            }}
+            animate= {{
+                scale:[0,1,1.5,1]
+            }}
+            transition={{
+                type: 'spring',
+                duration: 1,
+                delay: 1.4
+            }}
+        >
+            <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
+                <LinkedIn height={25} width={25} style={{fill: '#fff'}}/>
+            </NavLink>
+        </motion.div>
         </SocialWrap>
         <TimelineWrap>
             <AboutTimeline/>
@@ -329,23 +359,68 @@ function About() {
             <span className='quote'>Better Life !</span>
         </AboutQuote>
         <AboutEmoji>
-            <img src={hey} alt='bitmoji'/>
-            <ImgFrame></ImgFrame>
+            <motion.img 
+                src={hey} 
+                alt='bitmoji'
+                initial={{
+                    tranform: 'rotate(13deg)'
+                }}
+                animate={{
+                    rotate: [-13, -13,  13]
+                }}
+                transition= {{ type: "spring", duration: 1 }}
+            />
+            <ImgFrame
+                initial={{
+                    tranform: 'rotate(-13deg)'
+                }}
+                animate={{
+                    rotate: [13, 13,  -13]
+                }}
+                transition= {{ type: "spring", duration: 1 }}
+            ></ImgFrame>
         </AboutEmoji>
         
 
         <AboutText>
             <QuoteWrap>
-                <QuoteName>
+                <QuoteName
+                    initial={{
+                        x: -200,
+                        opacity: 0
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1
+                    }}
+                    transition={{
+                        type: 'spring',
+                        duration: 2,
+                    }}
+                >
                     <h3>Elon Musk</h3>
                     <span>you know him</span>
                 </QuoteName>
                 <QuoteImg src={elon}/>
-                <span className='quote'>
+                <motion.span 
+                    className='quote'
+                    initial={{
+                        x: 200,
+                        opacity: 0
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1
+                    }}
+                    transition={{
+                        type: 'spring',
+                        duration: 2,
+                    }}    
+                >
                     When something is important enough,<br></br> 
                     you do it even if the odds are not in your favor.
                     <img src={sign} className='sign'/>
-                </span>
+                </motion.span>
             </QuoteWrap>
 
             <ContactInfo>

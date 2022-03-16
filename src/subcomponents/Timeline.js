@@ -11,6 +11,7 @@ import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import HotelIcon from '@mui/icons-material/Hotel';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
 
 export default function AboutTimeline() {
   return (
@@ -23,7 +24,22 @@ export default function AboutTimeline() {
           </TimelineDot>
           <TimelineConnector sx={{ bgcolor: 'primary.main' }}/>
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent 
+          sx={{ py: '12px', px: 2 }}
+          component={motion.div}
+          initial={{
+            x: 200,
+            opacity: 0
+          }}
+          animate={{
+            x: 0,
+            opacity: 1
+          }}
+          transition={{
+            type: 'spring',
+            duration: 2,
+          }}
+        >
           <Typography variant="h6" component="span">
             Eat
           </Typography>
@@ -38,7 +54,22 @@ export default function AboutTimeline() {
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent 
+          sx={{ py: '12px', px: 2 }}
+          component={motion.div}
+          initial={{
+            x: -200,
+            opacity: 0
+          }}
+          animate={{
+            x: 0,
+            opacity: 1
+          }}
+          transition={{
+            type: 'spring',
+            duration: 2,
+          }}
+        >
           <Typography variant="h6" component="span">
             Sleep
           </Typography>
@@ -53,7 +84,22 @@ export default function AboutTimeline() {
           </TimelineDot>
           <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent 
+          sx={{ py: '12px', px: 2 }}
+          component={motion.div}
+          initial={{
+            x: 200,
+            opacity: 0
+          }}
+          animate={{
+            x: 0,
+            opacity: 1
+          }}
+          transition={{
+            type: 'spring',
+            duration: 2,
+          }}
+        >
           <Typography variant="h6" component="span">
             Code
           </Typography>
@@ -68,7 +114,22 @@ export default function AboutTimeline() {
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
+        <TimelineContent 
+          sx={{ py: '12px', px: 2 }}
+          component={motion.div}
+          initial={{
+            x: -200,
+            opacity: 0
+          }}
+          animate={{
+            x: 0,
+            opacity: 1
+          }}
+          transition={{
+            type: 'spring',
+            duration: 2,
+          }}  
+        >
           <Typography variant="h6" component="span">
             Repeat
           </Typography>

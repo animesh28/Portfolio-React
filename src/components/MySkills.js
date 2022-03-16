@@ -169,6 +169,9 @@ function MySkills() {
               icon2={cssIcon}
               icon3={jsIcon}
               icon4={reactIcon}
+              initial={{x: -200, opacity: 0}}
+              animate={{x: 0, opacity: 1}}
+              transition={{type: 'spring', duration: 1}}
             />
 
             <CardComponent
@@ -180,6 +183,9 @@ function MySkills() {
               icon2={sqlIcon}
               icon3={nodeIcon}
               icon4={mongoIcon}
+              initial={{x: 200, opacity: 0}}
+              animate={{x: 0, opacity: 1}}
+              transition={{type: 'spring', duration: 1}}
             />
             <BgHeading
               initial={{y: '150px'}}

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 import { mediaQueries } from '../components/Themes'
+import { motion } from 'framer-motion'
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   color: ${(props) => props.theme.text};
   background: rgba(255, 255, 255, .65);
   padding: 2rem;
@@ -177,7 +178,11 @@ const XShape = styled.span`
 
 function CardComponent(props) {
     return (
-        <Card>
+        <Card
+          initial = {props.initial}
+          animate = {props.animate}
+          transition = {props.transition}
+        >
             <CardFront className='cardSide cardFront'>
                 <CardImg src={props.img}/>
                 <CardTitle>
