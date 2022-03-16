@@ -464,7 +464,7 @@ function Work() {
             duration: 3,
             background: '#821F1B',
             opacity: 1,
-            ease: 'ease-in',                
+            ease: 'ease-in',          
         }, 'seventhSlide')
         .to('.text-wrap', {
             duration: 3,

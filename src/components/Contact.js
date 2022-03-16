@@ -16,6 +16,249 @@ import Checkbox from '@mui/material/Checkbox'
 import ChatIcon from '@mui/icons-material/Chat'
 import SendIcon from '@mui/icons-material/Send'
 import { styled as styledMui } from '@mui/material/styles'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
+function Contact() {
+  const [loading, setLoading] = React.useState(false);
+  function handleClick() {
+    setLoading(true);
+  }
+
+  const formik = useFormik({
+
+    initialValues:{ 
+      fName: '',
+      lName: '',
+      email: '',
+      phone: '',
+      message: ''
+    },
+
+    validationSchema:Yup.object({
+        fName: Yup.string()
+        .required('Sorry, First Name is required'),
+
+        lName: Yup.string()
+        .required('Sorry, Last Name is required'),
+
+        email: Yup.string()
+        .required('Sorry, E-mail is required')
+        .email('Please enter a valid E-mail'),
+
+        phone: Yup.string()
+        .required("Sorry, Phone Number is required")
+        .matches(
+          /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+          "Please enter a valid Phone Number"
+        ),
+
+        message: Yup.string()
+        .required('Sorry, Message is required')
+        .min(10, 'Let\'s hear more from you!' )
+        .max(1000, 'Can you be a bit precise about your query.'),
+        
+    }),
+    onSubmit:(values, { resetForm })=>{
+        handleSubmit(values)
+    }
+  })
+
+  const handleSubmit = (values) => {
+      console.log(values)
+  }
+
+  const errorHelper = (formik, values) => {
+      return({
+          error: formik.errors[values] && formik.touched[values] ? true : false,
+          helperText: formik.errors[values] && formik.touched[values] ? formik.errors[values] : null
+      })
+  }
+  return (
+    <MainContainer>
+      <LogoComponent/>
+      <PowerButton/>
+      <Container>
+        <ContactHead>
+          <h1>Contact Me</h1>
+          <span>Any questions or remarks, Just write me a message!</span>
+        </ContactHead>
+
+        <ContactFormWrap>
+          <ContactCTA>
+            <CTAHead>
+              <h2>Contact Information</h2>
+              <span>Fill up the form and I'll get back to you within 24 hours.</span>
+            </CTAHead>
+            <span className='orange-bubble'></span>
+            <span className='blue-bubble'></span>
+            <CTAICons>
+              <NavLink to='/'>
+                <CallIcon style={{fill: '#fa949d'}}/>
+                <span>+91 8210118679</span>
+              </NavLink>
+              <NavLink to='/'>
+                <EmailIcon style={{fill: '#fa949d'}}/>
+                <span>animesh.raj.om@gmail.com</span>
+              </NavLink>
+              <NavLink to='/'>
+                <LocationOnIcon style={{fill: '#fa949d'}}/>
+                <span>Ranchi, Jharkhand</span> 
+              </NavLink>
+            </CTAICons>
+
+            <SocialIcons>
+              <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
+                <Whatsapp width={25} height={25} style={{fill: "#fff"}}/>
+              </NavLink>
+              <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
+                <Github width={25} height={25} style={{fill: "#fff"}}/>
+              </NavLink>
+              <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
+                <LinkedIn width={25} height={25} style={{fill: "#fff"}}/>
+              </NavLink>
+            </SocialIcons>
+          </ContactCTA>
+          <ContactForm>
+            <FormGroup>
+              <TextField 
+                id="standard-basic" 
+                label="First Name" 
+                variant="standard" 
+                color='secondary'
+                style={{width: "45%"}} 
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle style={{fill: '#1976d2'}}/>
+                    </InputAdornment>
+                  ),
+                }}
+                {...formik.getFieldProps('fName')}
+                {...errorHelper(formik,'fName')}
+              />
+              <TextField 
+                id="standard-basic" 
+                label="Last Name" 
+                variant="standard" 
+                color='secondary'
+                style={{width: "45%"}} 
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle style={{fill: 'rgb(126,83,249)'}} />
+                    </InputAdornment>
+                  ),
+                }}
+                {...formik.getFieldProps('lName')}
+                {...errorHelper(formik,'lName')}
+              />
+            </FormGroup>
+            <FormGroup>
+              <TextField 
+                id="standard-basic" 
+                label="E-mail" 
+                variant="standard" 
+                color='secondary'
+                style={{width: "45%"}} 
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <EmailIcon style={{fill: '#1976d2'}} />
+                    </InputAdornment>
+                  ),
+                }}
+                {...formik.getFieldProps('email')}
+                {...errorHelper(formik,'email')}
+              />
+              <TextField 
+                id="standard-basic" 
+                label="Phone" 
+                variant="standard" 
+                color='secondary'
+                style={{width: "45%"}} 
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CallIcon style={{fill: 'rgb(126,83,249)'}} />
+                    </InputAdornment>
+                  ),
+                }}
+                {...formik.getFieldProps('phone')}
+                {...errorHelper(formik,'phone')}
+              />
+            </FormGroup>
+
+            <ServiceWrap>
+              <h3>Your query comprise of which of the following?</h3>
+              <CheckBoxWrap>
+                <div>
+                <FormControlLabel control={
+                  <Checkbox
+                  icon={<BookmarkBorderIcon />}
+                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
+                  />} 
+                  label="Front-end Development" 
+                  {...formik.getFieldProps('frontEnd')}
+                  {...errorHelper(formik,'frontEnd')}
+                  />
+                </div>
+                <div>
+                <FormControlLabel control={
+                  <Checkbox
+                  icon={<BookmarkBorderIcon />}
+                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
+                  />} 
+                  label="Back-end Development" />
+                </div>
+                <div>
+                <FormControlLabel control={
+                  <Checkbox
+                  icon={<BookmarkBorderIcon />}
+                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
+                  />} 
+                  label="Other" />
+                </div>
+              </CheckBoxWrap>
+            </ServiceWrap>
+            <FormGroup>
+              <TextField
+                id="standard-multiline-static"
+                label="Your Message"
+                multiline
+                rows={4}
+                variant="standard"
+                style={{width: "100%"}} 
+                color='secondary'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <ChatIcon style={{fill: '#1976d2'}} />
+                    </InputAdornment>
+                  ),
+                }}
+                {...formik.getFieldProps('message')}
+                {...errorHelper(formik,'message')}
+              />
+            </FormGroup>
+
+            <SubmitBtnWrap>
+            <StyledLoadingButton
+              onClick={handleClick}
+              endIcon={<SendIcon />}
+              loading={loading}
+              loadingPosition="end"
+              variant="contained"
+            >
+              Send
+            </StyledLoadingButton>
+            </SubmitBtnWrap>
+          </ContactForm>
+        </ContactFormWrap>
+      </Container>
+    </MainContainer>
+  )
+}
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -202,183 +445,5 @@ const StyledLoadingButton = styledMui(LoadingButton)({
     background: '#7e53f9'
   }
 })
-
-function Contact() {
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
-  }
-  return (
-    <MainContainer>
-      <LogoComponent/>
-      <PowerButton/>
-      <Container>
-        <ContactHead>
-          <h1>Contact Me</h1>
-          <span>Any questions or remarks, Just write me a message!</span>
-        </ContactHead>
-
-        <ContactFormWrap>
-          <ContactCTA>
-            <CTAHead>
-              <h2>Contact Information</h2>
-              <span>Fill up the form and I'll get back to you within 24 hours.</span>
-            </CTAHead>
-            <span className='orange-bubble'></span>
-            <span className='blue-bubble'></span>
-            <CTAICons>
-              <NavLink to='/'>
-                <CallIcon style={{fill: '#fa949d'}}/>
-                <span>+91 8210118679</span>
-              </NavLink>
-              <NavLink to='/'>
-                <EmailIcon style={{fill: '#fa949d'}}/>
-                <span>animesh.raj.om@gmail.com</span>
-              </NavLink>
-              <NavLink to='/'>
-                <LocationOnIcon style={{fill: '#fa949d'}}/>
-                <span>Ranchi, Jharkhand</span> 
-              </NavLink>
-            </CTAICons>
-
-            <SocialIcons>
-              <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
-                <Whatsapp width={25} height={25} style={{fill: "#fff"}}/>
-              </NavLink>
-              <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
-                <Github width={25} height={25} style={{fill: "#fff"}}/>
-              </NavLink>
-              <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"https://google.co.in/"}}>
-                <LinkedIn width={25} height={25} style={{fill: "#fff"}}/>
-              </NavLink>
-            </SocialIcons>
-          </ContactCTA>
-          <ContactForm>
-            <FormGroup>
-              <TextField 
-                id="standard-basic" 
-                label="First Name" 
-                variant="standard" 
-                color='secondary'
-                style={{width: "45%"}} 
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccountCircle />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField 
-                id="standard-basic" 
-                label="Last Name" 
-                variant="standard" 
-                color='secondary'
-                style={{width: "45%"}} 
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccountCircle />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </FormGroup>
-            <FormGroup>
-              <TextField 
-                id="standard-basic" 
-                label="E-mail" 
-                variant="standard" 
-                color='secondary'
-                style={{width: "45%"}} 
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField 
-                id="standard-basic" 
-                label="Phone" 
-                variant="standard" 
-                color='secondary'
-                style={{width: "45%"}} 
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <CallIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </FormGroup>
-
-            <ServiceWrap>
-              <h3>Your query comprise of which of the following?</h3>
-              <CheckBoxWrap>
-                <div>
-                <FormControlLabel control={
-                  <Checkbox
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
-                  />} 
-                  label="Front-end Development" />
-                </div>
-                <div>
-                <FormControlLabel control={
-                  <Checkbox
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
-                  />} 
-                  label="Back-end Development" />
-                </div>
-                <div>
-                <FormControlLabel control={
-                  <Checkbox
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
-                  />} 
-                  label="Other" />
-                </div>
-              </CheckBoxWrap>
-            </ServiceWrap>
-            <FormGroup>
-              <TextField
-                id="standard-multiline-static"
-                label="Your Message"
-                multiline
-                rows={4}
-                variant="standard"
-                style={{width: "100%"}} 
-                color='secondary'
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <ChatIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </FormGroup>
-
-            <SubmitBtnWrap>
-            <StyledLoadingButton
-              onClick={handleClick}
-              endIcon={<SendIcon />}
-              loading={loading}
-              loadingPosition="end"
-              variant="contained"
-            >
-              Send
-            </StyledLoadingButton>
-            </SubmitBtnWrap>
-          </ContactForm>
-        </ContactFormWrap>
-      </Container>
-    </MainContainer>
-  )
-}
 
 export default Contact
