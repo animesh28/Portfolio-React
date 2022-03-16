@@ -23,6 +23,7 @@ function Contact() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
+    formik.handleSubmit()
   }
 
   const formik = useFormik({
@@ -60,6 +61,7 @@ function Contact() {
         
     }),
     onSubmit:(values, { resetForm })=>{
+        console.log(values);
         handleSubmit(values)
     }
   })
@@ -70,8 +72,8 @@ function Contact() {
 
   const errorHelper = (formik, values) => {
       return({
-          error: formik.errors[values] && formik.touched[values] ? true : false,
-          helperText: formik.errors[values] && formik.touched[values] ? formik.errors[values] : null
+          error: formik.errors[values] && formik.touched[values] ? true : undefined,
+          helperText: formik.errors[values] && formik.touched[values] ? formik.errors[values] : undefined
       })
   }
   return (
@@ -119,7 +121,7 @@ function Contact() {
               </NavLink>
             </SocialIcons>
           </ContactCTA>
-          <ContactForm>
+          <ContactForm onSubmit={formik.handleSubmit}>
             <FormGroup>
               <TextField 
                 id="standard-basic" 
@@ -249,6 +251,7 @@ function Contact() {
               loading={loading}
               loadingPosition="end"
               variant="contained"
+              type="submit"
             >
               Send
             </StyledLoadingButton>
