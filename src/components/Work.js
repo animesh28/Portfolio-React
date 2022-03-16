@@ -18,12 +18,22 @@ import { ScrollToPlugin } from 'gsap/all';
 import PowerButton from '../subcomponents/PowerButton';
 import LogoComponent from '../subcomponents/LogoComponent';
 import natoursBg from '../assets/Images/natours-form.png'
+import disneyMac from '../assets/Images/disney-mac.gif'
+import disneyMacLogin from '../assets/Images/disneyLogin-mac.png'
+import disneyMob from '../assets/Images/disney-mobile.png'
+import rudraText from '../assets/Images/rudra-text.png'
+import maharajaText from '../assets/Images/maharaja-text.gif'
+import crazyText from '../assets/Images/crazy-text.png'
+import jmdText from '../assets/Images/jmd-text.png'
+import teslaMac from '../assets/Images/tesla-mac.png'
+import teslaTab from '../assets/Images/tesla-tab.png'
+import teslaText from '../assets/Images/tesla-text.png'
+
 
 const Container = styled.div`
     display: flex;
     width: 100vw;
     height: 100vh;
-
 
     /*Work Page Logo Color*/
     .logo {
@@ -35,14 +45,18 @@ const TextWrap = styled.div`
     display: flex;
     width: 50vw;
     height: 100vh;
-    background: url(${natoursBg}) ,#00824d;
-    background-repeat: no-repeat;
-    background-size: 70%;
-    background-position: 3rem center;
-    background-blend-mode: normal;
-    position: static;
+    background: #00824d;
     z-index: 19;
     box-shadow: inset 2rem -2rem 4rem rgba(0,0,0,.3);
+    position: relative;
+
+    img {
+        height: 45%;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+    }
 `
 
 const ImageWrapContainer = styled.div`
@@ -56,7 +70,7 @@ const ImageWrap1 = styled.div`
     width: 50vw;
     height: 100vh;
     background-color: orange;
-    background: #01b769;
+    background: linear-gradient(to left , #7ed56f, #28b485, #00824d);
     box-shadow: inset -2rem -2rem 4rem rgba(0,0,0,.3);
     position:relative;
     z-index: 1;
@@ -68,7 +82,7 @@ const ImageWrap2 = styled(ImageWrap1)`
     left:0;
     opacity: 0;
     z-index: 2;
-    background: #ccc;
+    background: linear-gradient(to right bottom, #03040D, #292C3C, #03040D);
 `
 const ImageWrap3 = styled(ImageWrap1)`
     position: absolute;
@@ -76,6 +90,7 @@ const ImageWrap3 = styled(ImageWrap1)`
     left:0;
     opacity: 0;
     z-index: 5;
+    background: linear-gradient(to bottom right, #0C1C66, #6284FC);
 `
 const ImageWrap4 = styled(ImageWrap1)`
     position: absolute;
@@ -83,7 +98,7 @@ const ImageWrap4 = styled(ImageWrap1)`
     left: 0;
     opacity: 0;
     z-index: 8;
-    background: #b7172f;
+    background: linear-gradient(to top left, #FF177C, #AA2820);
 `
 
 const ImageWrap5 = styled(ImageWrap1)`
@@ -92,7 +107,25 @@ const ImageWrap5 = styled(ImageWrap1)`
     left: 0;
     opacity: 0;
     z-index: 10;
-    background: #730f1d;
+    background: linear-gradient(to left, #333333, #dd1818);
+`
+
+const ImageWrap6 = styled(ImageWrap1)`
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    opacity: 0;
+    z-index: 12;
+    background: linear-gradient(to right, #141e30, #243b55);
+`
+
+const ImageWrap7 = styled(ImageWrap1)`
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    opacity: 0;
+    z-index: 14;
+    background: linear-gradient(to right bottom, #b92b27, #1565c0);
 `
 
 
@@ -145,6 +178,9 @@ const JmdS21 = styled.img`
     left: 28rem;
 `
 
+const DisneyMac = styled(JmdMac)``
+const DisneyMob = styled(JmdS21)``
+
 const RudraMac = styled.img`
     height: 50vh;
     position: absolute;
@@ -184,6 +220,10 @@ const CrazyTab = styled(RudraTab)`
     right: 4rem;
 `
 
+const TeslaMac = styled(RudraMac)``
+
+const TeslaTab = styled(RudraTab)``
+
 const HeadingText = styled.div`
     display: flex;
     flex-direction: column;
@@ -212,9 +252,13 @@ function Work() {
     let rudraMacRef, rudraTabRef = useRef(null)
     let maharajaMacRef, maharajaMobRef = useRef(null)
     let crazyMacRef, crazyTabRef = useRef(null)
+    let disneyMacRef, disneyMobRef = useRef(null)
+    let teslaMacRef, teslaTabRef = useRef(null)
+
+    
 
     useEffect(() => {
-
+        
         let t1 = new Timeline({delay: 0.3})
         
         gsap.registerPlugin(ScrollTrigger);
@@ -226,20 +270,17 @@ function Work() {
         .to('#img-wrap_1', {
             duration: .5,
             opacity: 0,
-            ease: 'ease-in',    
-            attr: {
-                ['data-active']: 'hidden'
-            },                
+            ease: 'ease-in',                   
         }, 'fadeFirst')
         .to('.text-wrap', {
             duration: 3,
-            background: '#003f72',
             opacity: 1,
-            ease: 'ease-in',                
+            background: '#090b13',
+            ease: 'ease-in',             
         }, 'secondSlide')
         .to('.circle-wrap', {
             duration: 3,
-            background: '#003f72',
+            background: '#090b13',
             opacity: 1,
             ease: 'ease-in',                
         }, 'secondSlide')
@@ -247,10 +288,7 @@ function Work() {
             duration: 3,
             y: '-100vh',
             opacity: 1,
-            ease: 'ease-in',
-            attr: {
-                ['data-active']: 'active'
-            }                 
+            ease: 'ease-in',                 
         }, 'secondSlide')
         .to('.transrgwht', {
             duration: 3,
@@ -262,26 +300,19 @@ function Work() {
             duration: .5,
             ease: 'ease-in',
             fill: '#0092ff',
-            onUpdate: setJmd,
+            onUpdate: setDisney,
         },'fillDot2')
         .to('#img-wrap_2', {
             duration: .5,
             opacity: 0,
             ease: 'ease-in',    
-            delay: 2,    
-            attr: {
-                ['data-active']: 'hidden'
-            }          
+            delay: 2,           
         }, 'fadeSecond')
         .to('#img-wrap_3', {
             duration: 3,
             y: '100vh',
             opacity: 1,
-            background: '#151247',
-            ease: 'ease-in',
-            attr: {
-                ['data-active']: 'active'
-            } 
+            ease: 'ease-in', 
         },'thirdSlide')
         .to('.text-wrap', {
             duration: 3,
@@ -299,7 +330,7 @@ function Work() {
             duration: 3,
             strokeDasharray: "280,1000",
             ease: 'ease-in',
-            onUpdate: setJmd,
+            onUpdate: setDisney,
         }, 'thirdSlide')
         .to('.dotsfill3', {
             duration: .5,
@@ -311,20 +342,13 @@ function Work() {
             duration: .5,
             opacity: 0,
             ease: 'ease-in',  
-            delay: 2,   
-            attr: {
-                ['data-active']: 'hidden'
-            }           
+            delay: 2,             
         }, 'fadeThird')
         .to('#img-wrap_4', {
             duration: 3,
             y: '-100vh',
             opacity: 1,
-            delay: 2,
-            ease: 'ease-in', 
-            attr: {
-                ['data-active']: 'active'
-            } 
+            ease: 'ease-in',  
         },'fourthSlide')
         .to('.circle-wrap', {
             duration: 3,
@@ -355,19 +379,13 @@ function Work() {
             duration: .5,
             opacity: 0,
             ease: 'ease-in',
-            attr: {
-                ['data-active']: 'hidden'
-            } ,
             delay: 2,                
         }, 'fadeFourth')
         .to('#img-wrap_5', {
             duration: 3,
             y: '100vh',
             opacity: 1,
-            ease: 'ease-in',  
-            attr: {
-                ['data-active']: 'active'
-            }               
+            ease: 'ease-in',                 
         }, 'fifthSlide')
         .to('.circle-wrap', {
             duration: 3,
@@ -385,7 +403,6 @@ function Work() {
             duration: 3,
             strokeDasharray: "540,1000",
             ease: 'ease-in',
-            
             onUpdate: setMaharaja,
         }, 'fifthSlide')
         .to('.dotsfill5', {
@@ -394,6 +411,90 @@ function Work() {
             fill: '#0092ff',
             onUpdate: setCrazy
         },'fillDot5')
+        .to('#img-wrap_5', {
+            duration: .5,
+            opacity: 0,
+            ease: 'ease-in',
+            delay: 3,                
+        }, 'fadeFifth')
+        .to('#img-wrap_6', {
+            duration: 3,
+            y: '-100vh',
+            opacity: 1,
+            ease: 'ease-in',                 
+        }, 'sixthSlide')
+        .to('.circle-wrap', {
+            duration: 3,
+            background: '#101827',
+            opacity: 1,
+            ease: 'ease-in',                
+        }, 'sixthSlide')
+        .to('.text-wrap', {
+            duration: 3,
+            background: '#101827',
+            opacity: 1,
+            ease: 'ease-in',                
+        }, 'sixthSlide')
+        .to('.transrgwht', {
+            duration: 3,
+            strokeDasharray: "680,1000",
+            ease: 'ease-in',
+            
+            onUpdate: setCrazy,
+        }, 'sixthSlide')
+        .to('.dotsfill6', {
+            duration: .5,
+            ease: 'ease-in',
+            fill: '#0092ff',
+            onUpdate: setJmd
+        },'fillDot6')
+        .to('#img-wrap_6', {
+            duration: .5,
+            opacity: 0,
+            ease: 'ease-in',
+            delay: 3,                
+        }, 'fadeSixth')
+        .to('#img-wrap_7', {
+            duration: 3,
+            y: '100vh',
+            opacity: 1,
+            ease: 'ease-in',                 
+        }, 'seventhSlide')
+        .to('.circle-wrap', {
+            duration: 3,
+            background: '#821F1B',
+            opacity: 1,
+            ease: 'ease-in',                
+        }, 'seventhSlide')
+        .to('.text-wrap', {
+            duration: 3,
+            background: '#821F1B',
+            opacity: 1,
+            ease: 'ease-in',                
+        }, 'seventhSlide')
+        .to('.transrgwht', {
+            duration: 3,
+            strokeDasharray: "850,1000",
+            ease: 'ease-in',
+            onUpdate: setJmd,
+        }, 'seventhSlide')
+        .to('.dotsfill7', {
+            duration: .5,
+            ease: 'ease-in',
+            fill: '#0092ff',
+            onUpdate: setTesla
+        },'fillDot7')
+
+        ScrollTrigger.create({
+            animation: t1,
+            trigger: '.work-container',
+            start: 'top 0%',
+            end: '+=7000',
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            id: 'transition'
+        })
         
         const dot1 = document.querySelector('.dots-nav-1')
         dot1.addEventListener('click', (e) => {
@@ -426,27 +527,30 @@ function Work() {
             gsap.to(window, { duration: 3, scrollTo: pos, ease: 'linear' })
         })
 
-        ScrollTrigger.create({
-            animation: t1,
-            trigger: '.work-container',
-            start: 'top 0%',
-            end: '+=5000',
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-            id: 'transition'
+        const dot6 = document.querySelector('.dots-nav-6')
+        dot6.addEventListener('click', (e) => {
+            const pos = Math.ceil(document.body.scrollHeight * (t1.labels.fillDot6 / t1.duration()))
+            gsap.to(window, { duration: 3, scrollTo: pos, ease: 'linear' })
         })
+
+        const dot7 = document.querySelector('.dots-nav-7')
+        dot7.addEventListener('click', (e) => {
+            const pos = Math.ceil(document.body.scrollHeight * (t1.labels.fillDot7 / t1.duration()))
+            gsap.to(window, { duration: 3, scrollTo: pos, ease: 'linear' })
+        })
+
+        
 
         //JMD Slide Transition   
         let t2 = new Timeline()
 
-        t2.from(jmdS21Ref, {
+        t2.from(disneyMobRef, {
             duration: 2,
             opacity: 0,
             y: '-200vh',
             ease: 'ease-in',                
         }, "anime")
-        .from(jmdMacRef, {
+        .from(disneyMacRef, {
             duration: 2,
             opacity: 0,
             y: '140vh',
@@ -489,13 +593,13 @@ function Work() {
             opacity: 0,
             x: '6rem',
             ease: 'ease-in',               
-        }, "anime5")
+        }, "anime3")
         .from(rudraMacRef, {
             duration: 2,
             opacity: 0,
             x: '-10rem',
             ease: 'ease-in',               
-        }, "anime5")
+        }, "anime3")
         
         
 
@@ -515,22 +619,22 @@ function Work() {
         t6.from(maharajaMobRef, {
             duration: 2,
             opacity: 0,
-            x: '100vw',
+            x: '40vw',
             ease: 'ease-in',               
-        }, "anime7")
+        }, "anime4")
         .from(maharajaMacRef, {
             duration: 2,
             opacity: 0,
-            x: '-100vw',
+            x: '-40vw',
             ease: 'ease-in',               
-        }, "anime7")
+        }, "anime4")
         
 
         ScrollTrigger.create({
             animation: t6,
             trigger: '#img-wrap_4',
             start: 'top 0%',
-            end: '+=4000',
+            end: '+=4200',
             scrub: 1,
             id: 'transition3'
         })  
@@ -541,18 +645,17 @@ function Work() {
         t5.from(crazyTabRef, {
             duration: 3,
             opacity: 0,
-            x: '100vw',
-            y: '-100vh',
+            x: '40vw',
+            y: '-40vh',
             ease: 'ease-in',               
-        }, "anime8")
+        }, "anime5")
         .from(crazyMacRef, {
             duration: 3,
             opacity: 0,
-            x: '-100vw',
-            y: '100vh',
+            x: '-40vw',
+            y: '40vh',
             ease: 'ease-in',               
-        }, "anime8")
-        
+        }, "anime5")
 
         ScrollTrigger.create({
             animation: t5,
@@ -561,6 +664,31 @@ function Work() {
             end: '+=5000',
             scrub: 1,
             id: 'transition4'
+        })  
+
+        let t7 = new Timeline()
+
+        t7.from(jmdS21Ref, {
+            duration: 2,
+            opacity: 0,
+            y: '-200vh',
+            ease: 'ease-in',
+        }, "anime6")
+        .from(jmdMacRef, {
+            duration: 2,
+            opacity: 0,
+            y: '140vh',
+            ease: 'ease-in',                
+        }, "anime6")
+        
+
+        ScrollTrigger.create({
+            animation: t7,
+            trigger: '#img-wrap_6',
+            start: 'top 0%',
+            end: '+=5500',
+            scrub: 1,
+            id: 'transition5',
         })  
     }, [])
 
@@ -571,48 +699,76 @@ function Work() {
             ScrollTrigger.getById('transition2').kill()
             ScrollTrigger.getById('transition3').kill()
             ScrollTrigger.getById('transition4').kill()
+            ScrollTrigger.getById('transition5').kill()
         }
     }, [])
     const [textData, setTextData] = useState({name: 'Natours', descrip:'Exciting tours and travels'})
-    const setNatours = () => setTextData({name: 'Natours', descrip: 'Exciting tours and travels'})
-    const setJmd = () => setTextData({name: 'JMD Developers', descrip: 'Construction | Real Estate | Joint Venture'})
-    const setRudra = () => setTextData({name: 'Rudra Motors', descrip: 'Tata Motors Dealership'})
-    const setMaharaja = () => setTextData({name: 'Maharaja Studios', descrip: 'Photography | Cinematography'})
-    const setCrazy = () => setTextData({name: 'Crazy Bakery', descrip: 'Bakery'})
+    const setNatours = () => {
+        setTextData({name: 'Natours', descrip: 'Exciting tours and travels'})
+        document.querySelector('#text-wrap_img').src = natoursBg
+    }
+    const setDisney = () => {
+        setTextData({name: 'Disney+ Clone', descrip: 'OTT Platform'})
+        document.querySelector('#text-wrap_img').src = disneyMacLogin
+    }
+    const setJmd = () => {
+        document.querySelector('#text-wrap_img').src = jmdText
+        setTextData({name: 'JMD Developers', descrip: 'Construction | Real Estate | Joint Venture'})
+    }
+    const setRudra = () => {
+        document.querySelector('#text-wrap_img').src = rudraText
+        setTextData({name: 'Rudra Motors', descrip: 'Tata Motors Dealership'})
+    }
+    const setMaharaja = () => {
+        document.querySelector('#text-wrap_img').src = maharajaText
+        setTextData({name: 'Maharaja Studios', descrip: 'Photography | Cinematography'})
+    }
+    const setCrazy = () => {
+        document.querySelector('#text-wrap_img').src = crazyText
+        setTextData({name: 'Crazy Bakery', descrip: 'Bakery'})
+    }
+    const setTesla = () => {
+        document.querySelector('#text-wrap_img').src = teslaText
+        setTextData({name: 'Tesla Clone', descrip: 'Electric Cars | Solar Panels'})
+    }
 
-    const cleanup = useState(false)
-    
-    
-
-    
   return (
     <Container className='work-container'>
         <LogoComponent/>
         <PowerButton top='1.5rem'/>
         <TextWrap className='text-wrap'>
-            
+            <img src={natoursBg} alt='img-text-wrap' id='text-wrap_img'/>
         </TextWrap>
         <ImageWrapContainer>
-        <ImageWrap1 id='img-wrap_1' data-active="active">
+        <ImageWrap1 id='img-wrap_1'>
             <NatoursVid src={NatoursGif} ref={el => natoursGifVid = el}/>
             <NatoursSnow src={NatoursImg} ref={el => natoursImg = el}/>
         </ImageWrap1>
-        <ImageWrap2 id='img-wrap_2' data-active="hidden">
-            <JmdMac src={jmdMac} alt="JMD-Mac" ref={el => jmdMacRef = el}/>
-            <JmdS21 src={jmdS21} alt="JMD-Mac" ref={el => jmdS21Ref = el}/>
+        <ImageWrap2 id='img-wrap_2'>
+            <DisneyMac src={disneyMac} alt="Disney-Mac" ref={el => disneyMacRef = el}/>
+            <DisneyMob src={disneyMob} alt="Disney-Mob" ref={el => disneyMobRef = el}/>
         </ImageWrap2>
-        <ImageWrap3 id="img-wrap_3" data-active="hidden">
+        <ImageWrap3 id="img-wrap_3">
             <RudraMac src={rudraMac} ref={el => rudraMacRef = el}/>
             <RudraTab src={rudraTab} ref={el => rudraTabRef = el}/>
         </ImageWrap3>
-        <ImageWrap4 id="img-wrap_4" data-active="hidden">
+        <ImageWrap4 id="img-wrap_4">
             <MaharajaMac src={maharajaMac} ref={el => maharajaMacRef = el}/>
             <MaharajaMob src={maharajaMob} ref={el => maharajaMobRef = el}/>
         </ImageWrap4>
-        <ImageWrap5 id="img-wrap_5" data-active="hidden">
+        <ImageWrap5 id="img-wrap_5">
             <CrazyMac src={crazyMac} ref={el => crazyMacRef = el}/>
             <CrazyTab src={crazyTab} ref={el => crazyTabRef = el}/>
         </ImageWrap5>
+        <ImageWrap6 id="img-wrap_6">
+            <JmdMac src={jmdMac} alt="JMD-Mac" ref={el => jmdMacRef = el}/>
+            <JmdS21 src={jmdS21} alt="JMD-Mac" ref={el => jmdS21Ref = el}/>
+        </ImageWrap6>
+
+        <ImageWrap7 id="img-wrap_7">
+            <TeslaMac src={teslaMac} alt="Tesla-Mac" ref={el => teslaMacRef = el}/>
+            <TeslaTab src={teslaTab} alt="Tesla-tab" ref={el => teslaTabRef = el}/>
+        </ImageWrap7>
         </ImageWrapContainer>
         <SvgSlider />
         <CircleWrap className='circle-wrap'>

@@ -182,7 +182,7 @@ function CardComponent(props) {
                 <CardImg src={props.img}/>
                 <CardTitle>
                 <img src={props.logo} />
-                <span>Web Design</span>
+                <span>{props.skill}</span>
                 </CardTitle>
             </CardFront>
             <CardBack className='cardSide cardBack'>

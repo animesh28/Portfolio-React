@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState, useEffect, useRef } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 import LogoComponent from '../subcomponents/LogoComponent'
 import PowerButton from '../subcomponents/PowerButton'
@@ -161,6 +161,7 @@ function MySkills() {
           <PowerButton/>
           <ParticleComponent theme='light'/>
             <CardComponent
+              skill={'Web Design'}
               img={design}
               logo={designLogo}
               middleIcon={designMiddle}
@@ -171,6 +172,7 @@ function MySkills() {
             />
 
             <CardComponent
+              skill={'Web Development'}
               img={dev}
               logo={devLogo}
               middleIcon={devMiddle}

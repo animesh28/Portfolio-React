@@ -18,7 +18,7 @@ export default function AboutTimeline() {
       <TimelineItem>
         <TimelineSeparator>
           <TimelineConnector />
-          <TimelineDot>
+          <TimelineDot className='eat'>
             <FastfoodIcon color='action'/>
           </TimelineDot>
           <TimelineConnector sx={{ bgcolor: 'primary.main' }}/>
@@ -33,7 +33,7 @@ export default function AboutTimeline() {
       <TimelineItem>
         <TimelineSeparator>
           <TimelineConnector sx={{ bgcolor: 'primary.main' }}/>
-          <TimelineDot color="primary">
+          <TimelineDot color="primary" className='sleep'>
             <HotelIcon />
           </TimelineDot>
           <TimelineConnector />
@@ -48,7 +48,7 @@ export default function AboutTimeline() {
       <TimelineItem>
         <TimelineSeparator>
           <TimelineConnector />
-          <TimelineDot>
+          <TimelineDot className='code'>
             <LaptopMacIcon color='action'/>
           </TimelineDot>
           <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
@@ -63,7 +63,7 @@ export default function AboutTimeline() {
       <TimelineItem>
         <TimelineSeparator>
           <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-          <TimelineDot color="secondary">
+          <TimelineDot color="secondary" className='repeat'>
             <RepeatIcon />
           </TimelineDot>
           <TimelineConnector />
