@@ -10,6 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
 
+app.get('/', (req,res) => {
+    res.send('Server is running')
+})
+
 app.post('/send_email', cors(), async (req,res) => {
     let { fName, lName, email, phone, message, frontEnd, backEnd, other } = req.body
 
@@ -40,6 +44,6 @@ app.post('/send_email', cors(), async (req,res) => {
     res.send('Message Sent!').status(200)
 })
 
-app.listen(process.env.port || 3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("Server is running")
 })
