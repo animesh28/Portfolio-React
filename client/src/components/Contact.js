@@ -78,7 +78,7 @@ function Contact() {
 
   const handleSubmit = async (values) => {
       try {
-        await axios.post('http://localhost:3001/send_email', {
+        await axios.post('https://animesh28-portfolio-server.herokuapp.com/send_email', {
           ...values
         })
 
