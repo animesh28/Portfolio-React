@@ -18,6 +18,9 @@ import SendIcon from '@mui/icons-material/Send'
 import { styled as styledMui } from '@mui/material/styles'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function Contact() {
   const [loading, setLoading] = React.useState(false);
@@ -33,7 +36,10 @@ function Contact() {
       lName: '',
       email: '',
       phone: '',
-      message: ''
+      message: '',
+      frontEnd: false,
+      backEnd: false,
+      other: false
     },
 
     validationSchema:Yup.object({
@@ -59,15 +65,45 @@ function Contact() {
         .min(10, 'Let\'s hear more from you!' )
         .max(1000, 'Can you be a bit precise about your query.'),
         
+        frontEnd: Yup.boolean(),
+
+        backEnd: Yup.boolean(),
+        
+        other: Yup.boolean(),
     }),
     onSubmit:(values, { resetForm })=>{
-        console.log(values);
         handleSubmit(values)
     }
   })
 
-  const handleSubmit = (values) => {
-      console.log(values)
+  const handleSubmit = async (values) => {
+      try {
+        await axios.post('http://localhost:3001/send_email', {
+          ...values
+        })
+
+        toast.success('E-mail sent successfully', {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          })
+
+      } catch(error) {
+
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          })
+      }
   }
 
   const errorHelper = (formik, values) => {
@@ -78,6 +114,17 @@ function Contact() {
   }
   return (
     <MainContainer>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <LogoComponent/>
       <PowerButton/>
       <Container>
@@ -197,29 +244,32 @@ function Contact() {
                 <div>
                 <FormControlLabel control={
                   <Checkbox
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
-                  />} 
-                  label="Front-end Development" 
-                  {...formik.getFieldProps('frontEnd')}
-                  {...errorHelper(formik,'frontEnd')}
+                    icon={<BookmarkBorderIcon />}
+                    checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
+                    />} 
+                    label="Front-end Development" 
+                    {...formik.getFieldProps('frontEnd')}
                   />
                 </div>
                 <div>
                 <FormControlLabel control={
                   <Checkbox
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
-                  />} 
-                  label="Back-end Development" />
+                    icon={<BookmarkBorderIcon />}
+                    checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
+                    />} 
+                    label="Back-end Development" 
+                    {...formik.getFieldProps('backEnd')}
+                  />
                 </div>
                 <div>
                 <FormControlLabel control={
                   <Checkbox
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
-                  />} 
-                  label="Other" />
+                    icon={<BookmarkBorderIcon />}
+                    checkedIcon={<BookmarkIcon style={{fill: 'rgb(126,83,249)'}}/>}
+                    />} 
+                    label="Other" 
+                    {...formik.getFieldProps('other')}
+                  />
                 </div>
               </CheckBoxWrap>
             </ServiceWrap>
