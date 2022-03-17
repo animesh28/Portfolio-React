@@ -28,223 +28,8 @@ import jmdText from '../assets/Images/jmd-text.png'
 import teslaMac from '../assets/Images/tesla-mac.png'
 import teslaTab from '../assets/Images/tesla-tab.png'
 import teslaText from '../assets/Images/tesla-text.png'
-
-
-const Container = styled.div`
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-
-    /*Work Page Logo Color*/
-    .logo {
-        color: #fff;
-    }
-`
-
-const TextWrap = styled.div`
-    display: flex;
-    width: 50vw;
-    height: 100vh;
-    background: #00824d;
-    z-index: 19;
-    box-shadow: inset 2rem -2rem 4rem rgba(0,0,0,.3);
-    position: relative;
-
-    img {
-        height: 45%;
-        position: absolute;
-        top: 50%;
-        left: 40%;
-        transform: translate(-50%, -50%);
-    }
-`
-
-const ImageWrapContainer = styled.div`
-    position: relative;
-    width: 50vw;
-    height: 100vh;
-`
-
-const ImageWrap1 = styled.div`
-    display: flex;
-    width: 50vw;
-    height: 100vh;
-    background-color: orange;
-    background: linear-gradient(to left , #7ed56f, #28b485, #00824d);
-    box-shadow: inset -2rem -2rem 4rem rgba(0,0,0,.3);
-    position:relative;
-    z-index: 1;
-`
-
-const ImageWrap2 = styled(ImageWrap1)`
-    position: absolute;
-    top: 100vh;
-    left:0;
-    opacity: 0;
-    z-index: 2;
-    background: linear-gradient(to right bottom, #03040D, #292C3C, #03040D);
-`
-const ImageWrap3 = styled(ImageWrap1)`
-    position: absolute;
-    top: -100vh;
-    left:0;
-    opacity: 0;
-    z-index: 5;
-    background: linear-gradient(to bottom right, #0C1C66, #6284FC);
-`
-const ImageWrap4 = styled(ImageWrap1)`
-    position: absolute;
-    top: 100vh;
-    left: 0;
-    opacity: 0;
-    z-index: 8;
-    background: linear-gradient(to top left, #FF177C, #AA2820);
-`
-
-const ImageWrap5 = styled(ImageWrap1)`
-    position: absolute;
-    top: -100vh;
-    left: 0;
-    opacity: 0;
-    z-index: 10;
-    background: linear-gradient(to left, #333333, #dd1818);
-`
-
-const ImageWrap6 = styled(ImageWrap1)`
-    position: absolute;
-    top: 100vh;
-    left: 0;
-    opacity: 0;
-    z-index: 12;
-    background: linear-gradient(to right, #141e30, #243b55);
-`
-
-const ImageWrap7 = styled(ImageWrap1)`
-    position: absolute;
-    top: -100vh;
-    left: 0;
-    opacity: 0;
-    z-index: 14;
-    background: linear-gradient(to right bottom, #b92b27, #1565c0);
-`
-
-
-const CircleWrap = styled.div`
-    height: 350px;
-    width: 350px;
-    border-radius: 50%;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #00824d;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-  
-`
-
-const NatoursVid = styled.img`
-    width: 30%;
-    height: 65%;
-    position: absolute;
-    top: 2vh;
-    right: 4rem;
-`
-
-const NatoursSnow = styled.img`
-    width: 30%;
-    height: 65%;
-    position: absolute;
-    bottom: 2vh;
-    left: 12rem;
-    z-index: 3;
-`
-
-const JmdMac = styled.img`
-    height: 50vh;
-    position: absolute;
-    bottom: 2rem;
-    right: 1rem;
-    z-index: 4;
-`
-
-const JmdS21 = styled.img`
-    height: 57vh;
-    position: absolute;
-    top: 1rem;
-    left: 28rem;
-`
-
-const DisneyMac = styled(JmdMac)``
-const DisneyMob = styled(JmdS21)``
-
-const RudraMac = styled.img`
-    height: 50vh;
-    position: absolute;
-    bottom: 1rem;
-    right: 5rem;
-    z-index: 4;
-`
-
-const RudraTab = styled.img`
-    height: 50vh;
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    z-index: 3;
-`
-
-const MaharajaMob = styled.img`
-    height: 57vh;
-    position: absolute;
-    top: 2rem;
-    left: 28rem;
-`
-
-const MaharajaMac = styled.img`
-    height: 50vh;
-    position: absolute;
-    bottom: 2rem;
-    right: 1rem;
-    z-index: 4;
-`
-
-const CrazyMac = styled(RudraMac)`
-    
-`
-
-const CrazyTab = styled(RudraTab)`
-    right: 4rem;
-`
-
-const TeslaMac = styled(RudraMac)``
-
-const TeslaTab = styled(RudraTab)``
-
-const HeadingText = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-
-    h1 {
-        font-family: 'Dancing Script', cursive;
-        font-size: 40px;        
-        font-weight: 00;
-        margin-bottom: 10px;
-        background: linear-gradient(to right bottom, #cecece, #ccc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    span {
-        text-transform: capitalize;
-    }
-`
+import LinkIcon from '@mui/icons-material/Link'
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark'
 
 function Work() {
     let jmdS21Ref, jmdMacRef = useRef(null)
@@ -254,8 +39,6 @@ function Work() {
     let crazyMacRef, crazyTabRef = useRef(null)
     let disneyMacRef, disneyMobRef = useRef(null)
     let teslaMacRef, teslaTabRef = useRef(null)
-
-    
 
     useEffect(() => {
         
@@ -270,7 +53,7 @@ function Work() {
         .to('#img-wrap_1', {
             duration: .5,
             opacity: 0,
-            ease: 'ease-in',                   
+            ease: 'ease-in',               
         }, 'fadeFirst')
         .to('.text-wrap', {
             duration: 3,
@@ -677,7 +460,7 @@ function Work() {
         .from(jmdMacRef, {
             duration: 2,
             opacity: 0,
-            y: '140vh',
+            y: '240vh',
             ease: 'ease-in',                
         }, "anime6")
         
@@ -690,6 +473,31 @@ function Work() {
             scrub: 1,
             id: 'transition5',
         })  
+
+        let t8 = new Timeline()
+
+        t8.from(teslaTabRef, {
+            duration: 2,
+            opacity: 0,
+            x: '400vw',
+            ease: 'ease-in',
+        }, "anime7")
+        .from(teslaMacRef, {
+            duration: 2,
+            opacity: 0,
+            x: '-400vw',
+            ease: 'ease-in',                
+        }, "anime7")
+        
+
+        ScrollTrigger.create({
+            animation: t8,
+            trigger: '#img-wrap_7',
+            start: 'bottom 0%',
+            end: '+=7000',
+            scrub: 1,
+            id: 'transition6',
+        })  
     }, [])
 
     useLayoutEffect(() => {
@@ -700,44 +508,63 @@ function Work() {
             ScrollTrigger.getById('transition3').kill()
             ScrollTrigger.getById('transition4').kill()
             ScrollTrigger.getById('transition5').kill()
+            ScrollTrigger.getById('transition6').kill()
         }
     }, [])
-    const [textData, setTextData] = useState({name: 'Natours', descrip:'Exciting tours and travels'})
+    const [textData, setTextData] = useState({name: 'Natours', descrip:'Exciting tours and travels', url: 'https://animesh28.github.io/Natours/'})
     const setNatours = () => {
-        setTextData({name: 'Natours', descrip: 'Exciting tours and travels'})
+        setTextData({name: 'Natours', descrip: 'Exciting tours and travels', url: 'https://animesh28.github.io/Natours/'})
         document.querySelector('#text-wrap_img').src = natoursBg
     }
     const setDisney = () => {
-        setTextData({name: 'Disney+ Clone', descrip: 'OTT Platform'})
+        setTextData({name: 'Disney+ Clone', descrip: 'OTT Platform', url: 'https://disneyplus-clone-fe126.web.app/'})
         document.querySelector('#text-wrap_img').src = disneyMacLogin
     }
     const setJmd = () => {
         document.querySelector('#text-wrap_img').src = jmdText
-        setTextData({name: 'JMD Developers', descrip: 'Construction | Real Estate | Joint Venture'})
+        setTextData({name: 'JMD Developers', descrip: 'Construction | Real Estate | Joint Venture', url: 'https://jmddevelopers.com/'})
     }
     const setRudra = () => {
         document.querySelector('#text-wrap_img').src = rudraText
-        setTextData({name: 'Rudra Motors', descrip: 'Tata Motors Dealership'})
+        setTextData({name: 'Rudra Motors', descrip: 'Tata Motors Dealership', url: 'https://rudramotor.com/'})
     }
     const setMaharaja = () => {
         document.querySelector('#text-wrap_img').src = maharajaText
-        setTextData({name: 'Maharaja Studios', descrip: 'Photography | Cinematography'})
+        setTextData({name: 'Maharaja Studios', descrip: 'Photography | Cinematography', url: 'https://maharaja-studios.netlify.app/'})
     }
     const setCrazy = () => {
         document.querySelector('#text-wrap_img').src = crazyText
-        setTextData({name: 'Crazy Bakery', descrip: 'Bakery'})
+        setTextData({name: 'Crazy Bakery', descrip: 'Bakery', url: 'https://crazybakery.in/'})
     }
     const setTesla = () => {
         document.querySelector('#text-wrap_img').src = teslaText
-        setTextData({name: 'Tesla Clone', descrip: 'Electric Cars | Solar Panels'})
+        setTextData({name: 'Tesla Clone', descrip: 'Electric Cars | Solar Panels', url: 'https://animesh-tesla-clone.netlify.app/'})
     }
 
   return (
     <Container className='work-container'>
+        
         <LogoComponent/>
         <PowerButton top='1.5rem'/>
         <TextWrap className='text-wrap'>
             <img src={natoursBg} alt='img-text-wrap' id='text-wrap_img'/>
+            <Info className='info'>
+                
+
+                <QuestionMarkIcon 
+                    style={{
+                        marginRight: '3rem',
+                        background: '#fff',
+                        borderRadius: '50%',
+                        padding: '5px',
+                        width: '30px',
+                        height: '30px',
+                        cursor: 'pointer'
+                    }}
+                    className='question'
+                />
+                <a href={textData.url} target="_blank" className='live-link'><LinkIcon/><span></span>{textData.url}</a>
+            </Info>
         </TextWrap>
         <ImageWrapContainer>
         <ImageWrap1 id='img-wrap_1'>
@@ -778,8 +605,279 @@ function Work() {
             </HeadingText>
         </CircleWrap>
     </Container>
-    
   )
 }
+
+const Container = styled.div`
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+    /*Work Page Logo Color*/
+    .logo {
+        color: #fff;
+    }
+`
+
+const TextWrap = styled.div`
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    background: #00824d;
+    z-index: 19;
+    box-shadow: inset 2rem -2rem 4rem rgba(0,0,0,.3);
+    position: relative;
+
+    img {
+        height: 45%;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+    }
+`
+
+const ImageWrapContainer = styled.div`
+    position: relative;
+    width: 50vw;
+    height: 100vh;
+`
+
+const ImageWrap1 = styled.div`
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    background-color: orange;
+    background: linear-gradient(to left , #7ed56f, #28b485, #00824d);
+    box-shadow: inset -2rem -2rem 4rem rgba(0,0,0,.3);
+    position:relative;
+    z-index: 1;
+`
+
+const ImageWrap2 = styled(ImageWrap1)`
+    position: absolute;
+    top: 100vh;
+    left:0;
+    opacity: 0;
+    z-index: 2;
+    background: linear-gradient(to right bottom, #03040D, #292C3C, #03040D);
+`
+const ImageWrap3 = styled(ImageWrap1)`
+    position: absolute;
+    top: -100vh;
+    left:0;
+    opacity: 0;
+    z-index: 5;
+    background: linear-gradient(to bottom right, #0C1C66, #6284FC);
+`
+const ImageWrap4 = styled(ImageWrap1)`
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    opacity: 0;
+    z-index: 8;
+    background: linear-gradient(to top left, #FF177C, #AA2820);
+`
+
+const ImageWrap5 = styled(ImageWrap1)`
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    opacity: 0;
+    z-index: 10;
+    background: linear-gradient(to left, #333333, #dd1818);
+`
+
+const ImageWrap6 = styled(ImageWrap1)`
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    opacity: 0;
+    z-index: 12;
+    background: linear-gradient(to right, #141e30, #243b55);
+`
+
+const ImageWrap7 = styled(ImageWrap1)`
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    opacity: 0;
+    z-index: 14;
+    background: linear-gradient(to right bottom, #b92b27, #1565c0);
+`
+
+
+const CircleWrap = styled.div`
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00824d;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  
+`
+
+const NatoursVid = styled.img`
+    width: 30%;
+    height: 65%;
+    position: absolute;
+    top: 2vh;
+    right: 4rem;
+`
+
+const NatoursSnow = styled.img`
+    width: 30%;
+    height: 65%;
+    position: absolute;
+    bottom: 2vh;
+    left: 12rem;
+    z-index: 3;
+`
+
+const JmdMac = styled.img`
+    height: 50vh;
+    position: absolute;
+    bottom: 2rem;
+    right: 1rem;
+    z-index: 4;
+`
+
+const JmdS21 = styled.img`
+    height: 57vh;
+    position: absolute;
+    top: 1rem;
+    left: 28rem;
+`
+
+const DisneyMac = styled(JmdMac)``
+const DisneyMob = styled(JmdS21)``
+
+const RudraMac = styled.img`
+    height: 50vh;
+    position: absolute;
+    bottom: 1rem;
+    right: 5rem;
+    z-index: 4;
+`
+
+const RudraTab = styled.img`
+    height: 50vh;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    z-index: 3;
+`
+
+const MaharajaMob = styled.img`
+    height: 57vh;
+    position: absolute;
+    top: 2rem;
+    left: 28rem;
+`
+
+const MaharajaMac = styled.img`
+    height: 50vh;
+    position: absolute;
+    bottom: 2rem;
+    right: 1rem;
+    z-index: 4;
+`
+
+const CrazyMac = styled(RudraMac)`
+    
+`
+
+const CrazyTab = styled(RudraTab)`
+    right: 4rem;
+`
+
+const TeslaMac = styled(RudraMac)``
+
+const TeslaTab = styled(RudraTab)``
+
+const HeadingText = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+
+    h1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 40px;        
+        font-weight: 00;
+        margin-bottom: 10px;
+        background: linear-gradient(to right bottom, #cecece, #ccc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    span {
+        text-transform: capitalize;
+    }
+`
+
+const Info = styled.div`
+    position: absolute;
+    bottom: 3rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        transition: all .4s ease;
+        background: rgba(0, 0, 0, .5);
+        padding: 15px 20px;
+        border-radius: 20px;
+
+        span {
+            width: 10px;
+        }
+
+        &:hover {
+            color: #000;
+            background: rgba(255, 255, 255, .5);
+        }
+
+        &:before {
+            content: 'Click on grey dots to traverse smoothly!';
+            position: absolute;
+            top: -7vh;
+            right: 10px;
+            width: 40%;
+            height: 100%;
+            background: rgba(255, 255, 255, .5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            border-radius: 25px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .4s ease-in;
+        }
+    }
+
+    & > .question:hover {
+        & ~ .live-link:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+`
 
 export default Work

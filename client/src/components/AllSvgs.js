@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react"
 import { TimelineLite } from "gsap/gsap-core"
 import { Back } from "gsap"
 import { TweenLite } from "gsap/gsap-core"
+import { useHistory } from "react-router-dom"
 
 export const PowerBtn = (props) => {
     return (
@@ -204,6 +205,7 @@ export const PowerBtn = (props) => {
 
 
   export const Email = (props) => {
+    const history = useHistory()
 
     useEffect(() => {
       var line1 = document.querySelector('#env-line-1');
@@ -212,6 +214,7 @@ export const PowerBtn = (props) => {
       var mailIcon = document.querySelector('#mail-icon');
       var envLid = document.querySelector('#env-lid');
       var envPaper = document.querySelector('#env-paper');
+      
 
       var tl = new TimelineLite({
         paused:true,
@@ -243,6 +246,9 @@ export const PowerBtn = (props) => {
             tl.reverse()
           } else {
             tl.play()
+            setTimeout(() => {
+              history.push('/contact')
+            }, 2000);
           }
 
           mailIcon.classList.toggle('toggled')

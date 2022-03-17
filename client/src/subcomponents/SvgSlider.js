@@ -3,12 +3,16 @@ import styled from 'styled-components'
 
 const SvgContainer = styled.div `
     position: fixed;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 21;
-        width: 350px;
-        height: 350px;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 21;
+    width: 350px;
+    height: 350px;
+
+    .path-slider__item {
+        cursor: pointer;
+    }
 `
 
 function SvgSlider() {
