@@ -40,6 +40,6 @@ app.post('/send_email', cors(), async (req,res) => {
     res.send('Message Sent!').status(200)
 })
 
-app.listen(3001, () => {
+app.listen(process.env.port || 3001, () => {
     console.log("Server is running")
 })
