@@ -13,6 +13,11 @@ const Box = styled.div`
     bottom: 0;
     right: 0;
     z-index: -10;
+
+    @media screen and (max-wdith: 567px) {
+      display:flex;
+      flex-direction: column;
+    }
 `
 
 function ParticleComponent(props) {

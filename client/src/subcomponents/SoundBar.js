@@ -63,6 +63,7 @@ function SoundBar(props) {
         else
             ref.current.pause()
     }
+    const mq = window.matchMedia("(max-width: 50em)").matches;
   return (
     <Box onClick={() => handleClick()}>
         <Line click={click}/>

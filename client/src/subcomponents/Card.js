@@ -16,6 +16,13 @@ const Card = styled(motion.div)`
   perspective: 150rem;
   -moz-perspective: 150rem;
 
+  @media screen and (max-width: 567px){
+    width: 80vw;
+    div.cardSide {
+      height: 60vh;
+    }
+    }
+
   div.cardSide {
     transition: all .8s ease;
     position: absolute;
@@ -29,19 +36,9 @@ const Card = styled(motion.div)`
     justify-content: space-between;
     overflow: hidden;
     border-radius: 16px;
+
+    
   }
-
-  
-
-  ${mediaQueries(60)`
-            height: 55vh;
-  `};
-
-  ${mediaQueries(50)`
-              width: 50vw;
-              height: max-content;
-
-  `};
 
   
   

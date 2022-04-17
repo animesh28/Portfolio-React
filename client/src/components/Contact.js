@@ -317,7 +317,8 @@ function Contact() {
 
 const MainContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-color: #f9f9fb;
   padding: 5rem 8rem;
   padding-bottom: 2rem;
@@ -358,6 +359,11 @@ const ContactFormWrap = styled.div`
   border-radius: 16px;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 567px) {
+    flex-direction: column;
+    height: auto;
+  }
 `
 
 const ContactCTA = styled.div`
@@ -371,6 +377,7 @@ const ContactCTA = styled.div`
   z-index: 1;
   padding: 2rem;
 
+  
   span.orange-bubble {
     width: 300px;
     height: 300px;
@@ -392,6 +399,24 @@ const ContactCTA = styled.div`
     right: 5vw;
     z-index: 2;
   }
+
+  @media screen and (max-width: 567px) {
+    width: 100%;
+    height: 65vh;
+
+    span.orange-bubble {
+      width: 220px;
+      height: 220px;
+      bottom: -17vh;
+    }
+
+    span.blue-bubble {
+      width: 100px;
+      height: 100px;
+      bottom: 5vh;
+    }
+  }
+
 `
 
 const CTAHead = styled.div`
@@ -432,6 +457,10 @@ const SocialIcons = styled.div`
   bottom: 25px;
   display: flex;
 
+  @media screen and (max-width: 567px) {
+    bottom: 20vh;
+  }
+
 
   & > a {
     display: flex;
@@ -450,7 +479,8 @@ const SocialIcons = styled.div`
 `
 
 const ContactForm = styled.form`
-  height: 100%;
+  max-height: 100%;
+  height: auto;
   width: 100%;
   padding: 2rem;
 `
@@ -483,7 +513,25 @@ const CheckBoxWrap = styled.div`
     margin-right: 0px;
   }
 
+  @media screen and (max-width: 567px) {
+    flex-direction: column;
 
+    & > div:first-of-type {
+    margin-right: 0;
+    }
+
+    & > div:not(:first-of-type) {
+    margin: 0;
+    }
+
+    & > div:last-of-type {
+    margin-right: 0px;
+    }
+
+    & > div {
+      margin: 10px 0;
+    }
+  }
 `
 
 const SubmitBtnWrap = styled.div`

@@ -115,7 +115,7 @@ const SubBox = styled.div`
   
       .pic {
     
-    width: 32%;
+    width: 30%;
     
   }
 
@@ -126,7 +126,7 @@ const SubBox = styled.div`
 
       .pic {
     
-    width: 33%;
+    width: 30%;
     
   }
 

@@ -11,11 +11,11 @@ import Loading from "./subcomponents/Loading"
 function App() {
   const location = useLocation()
   const MainPage = lazy(() => import("./components/Main"))
-  const WorkPage = lazy(() => import("./components/Work"))
+  const WorkPage = lazy(() => import("./components/WorkRespPage"))
   const ContactPage = lazy(() => import("./components/Contact"))
   const SkillsPage = lazy(() => import("./components/MySkills"))
   const About = lazy(() => import("./components/About"))
-
+  const mq = window.matchMedia("(max-width: 50em)").matches;
   return <>
     <GlobalStyles/>
     <ThemeProvider theme={lightTheme}>

@@ -9,6 +9,7 @@ import { YinYang } from './AllSvgs'
 import Intro from './Intro'
 import { motion } from 'framer-motion'
 import { mediaQueries } from './Themes'
+import Div100vh from 'react-div-100vh'
 
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
@@ -162,7 +163,7 @@ const DarkDiv = styled.div`
 `;
 
 
-function Main() {
+const Main = () => {
   const [YingYang, setYingYang] = useState(false)
   const [path, setpath] = useState("");
   
@@ -176,9 +177,9 @@ function Main() {
     x: `${path === "work" ? "100%" : "-100%"}`,
   };
   const mq = window.matchMedia("(max-width: 50em)").matches;
+  
 
   return (
-    // <Suspense fallback={<Loading />}>
       <MainContainer
         key="modal"
         initial={{ opacity: 0 }}
@@ -324,7 +325,6 @@ function Main() {
 
         {YingYang ? <Intro click={YingYang} /> : null}
       </MainContainer>
-    // </Suspense>
   )
 }
 
