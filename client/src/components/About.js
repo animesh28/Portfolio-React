@@ -19,6 +19,13 @@ const AboutWrap = styled.div`
     width: 100vw;
     position: relative;
 
+    @media screen and (max-width: 576px){
+        padding: 0;
+        background: linear-gradient(to right, #000428, #004e92, #000428);
+        background-repeat: repeat-y;
+        height: auto;
+    }
+
     h1 {
         color: #fff;
     }
@@ -41,10 +48,12 @@ const SocialWrap = styled.div`
 
 const TimelineWrap = styled.div`
     color: #ffffff;
-    position: fixed;
-    top: 45%;
-    left: 15%;
-    transform: translate(-50%, -50%);
+    @media screen and (min-width: 900px){
+        position: fixed;
+        top: 45%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+    }
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
 
     .MuiTimelineDot-root.eat, .MuiTimelineDot-root.code {
@@ -54,13 +63,19 @@ const TimelineWrap = styled.div`
     .MuiTimelineDot-root.sleep, .MuiTimelineDot-root.repeat {
         box-shadow: -3px 3px 5px rgba(0, 0, 0, .6);
     }
+
+    @media screen and (max-width: 576px){
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 80vw;
+        height: 80vh;
+        padding-top: 90px;
+    }
 `
 
 const AboutQuote = styled.h1`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+   
     font-size: 50px;
     font-family: 'Satisfy', cursive;
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
@@ -71,6 +86,21 @@ const AboutQuote = styled.h1`
     justify-content: center;
     align-items: center;
     z-index: 2;
+
+    @media screen and (min-width: 900px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @media screen and (max-width: 576px){
+        font-size: 30px;
+        position: relative;
+        margin: 0 2.5rem;
+        height: 40vh;
+        width: 60vw;
+    }
     
     &::after {
         content: '';
@@ -83,6 +113,11 @@ const AboutQuote = styled.h1`
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         background: linear-gradient(to bottom, #4db5ff, transparent);
         transition: all .5s ease-in;
+
+        @media screen and (max-width: 576px) {
+            left: 50%;
+            transform: translate(-50%,0);
+        }
     }
 
     &::before {
@@ -97,6 +132,11 @@ const AboutQuote = styled.h1`
         background: linear-gradient(to top, #4db5ff, transparent);
         box-shadow: 10px 20px 30px rgba(0, 0, 0, .4);
         transition: all .5s ease-in;
+
+        @media screen and (max-width: 576px) {
+            left: 50%;
+            transform: translate(-50%,0);
+        }
     }
 
     span {
@@ -157,15 +197,27 @@ const ImgFrame = styled(motion.div)`
     border-radius: 80px;
     transform: rotate(-13deg);
     transition: transform .5s ease-in;
+    
+    @media screen and (max-width: 576px){
+        width: 65vw;
+        height: 30vh;
+        margin: 3rem 2.5rem;
+    }
 `
 
 const AboutEmoji = styled.div`
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(0 , -50%);
+    @media screen and (min-width: 900px){
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0 , -50%);   
+    }
     margin-right: 2rem;
     z-index: 4;
+
+    @media screen and (max-width: 576px){
+        position: relative;
+    }
     
 
    
@@ -176,6 +228,12 @@ const AboutEmoji = styled.div`
         box-shadow: 10px 20px 30px rgba(0, 0, 0, .4);
         background: linear-gradient(#4db5ff, transparent);
         transition: transform .5s ease-in;
+
+        @media screen and (max-width: 576px){
+            width: 65vw;
+            height: 30vh;
+            margin: 3rem 2.5rem;
+        }
     }
 `
  
@@ -190,6 +248,13 @@ const AboutText = styled.div`
     color: #fff;
     justify-content:center;
     align-items: center;
+
+    @media screen and (max-width: 576px){
+        position: relative;
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+    }
 
     span.quote {
         margin: 0 15px;
@@ -207,6 +272,11 @@ const QuoteWrap = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
+
+    @media screen and (max-width: 576px){
+        flex-direction: column;
+        width: 100vw;
+    }
 `
 
 const QuoteName = styled(motion.div)`
@@ -237,15 +307,30 @@ const QuoteImg = styled.img`
 
 const ContactInfo = styled.div`
   display: flex;
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+    @media screen and (min-width: 900px){
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;   
+    }
+
+  @media screen and (max-width: 576px){
+        position: relative;
+        flex-direction: column;
+        margin-top: 4rem;
+        width: 90vw;
+
+    }
 
   a {
       text-decoration: none;
       color: #fff;
       margin: 0 10px;
       position: relative;
+
+      @media screen and (max-width: 576px){
+          margin: 2rem 0;
+          text-align: center;
+      }
 
       &:before {
           content: '';
@@ -291,6 +376,7 @@ const ContactInfo = styled.div`
 `;
 
 function About() {
+    const mq = window.matchMedia("(max-width: 50em)").matches;
   return (
     <AboutWrap>
         <LogoComponent/>
@@ -383,6 +469,7 @@ function About() {
         
 
         <AboutText>
+            {!mq ?
             <QuoteWrap>
                 <QuoteName
                     initial={{
@@ -421,7 +508,7 @@ function About() {
                     you do it even if the odds are not in your favor.
                     <img src={sign} className='sign'/>
                 </motion.span>
-            </QuoteWrap>
+            </QuoteWrap>: null}
 
             <ContactInfo>
                 <a href='tel:+918210118679'>+91 821-011-8679</a>
