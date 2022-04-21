@@ -20,7 +20,7 @@ const AboutWrap = styled.div`
     position: relative;
 
     @media screen and (max-width: 576px){
-        padding: 0;
+        padding: 2.5rem;
         background: linear-gradient(to right, #000428, #004e92, #000428);
         background-repeat: repeat-y;
         height: auto;
