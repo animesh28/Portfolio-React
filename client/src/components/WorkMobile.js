@@ -7,6 +7,8 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Natours1 from '../assets/Images/natours-ip.png'
 import Natours2 from '../assets/Images/natours-vid.gif'
+import disney1 from '../assets/Images/disney-mac.gif'
+import disney2 from '../assets/Images/disney-mobile.png'
 
 
 const Container = styled.div`
@@ -32,7 +34,7 @@ const Mobile = styled.div`
                 overflow: hidden;
 
 
-                .col1-img1, .col1-img2 {
+                .col-img {
                     height: 40vh;
                     width: auto;
                 }
@@ -48,7 +50,26 @@ const Mobile = styled.div`
                     top: -3.5vh;
                     right: 1rem;
                 }
+
+                .col2-img1 {
+                    position: absolute;
+                    bottom: 2vh;
+                    left: 2vw;
+                    width: 90vw;
+                    height: auto;
+                }
+
+                .col2-img2 {
+                    position: absolute;
+                    top: -2.5vh;
+                    right: .3rem;
+                }
             }
+
+            .image2 {
+                background: linear-gradient(to right bottom, #03040D, #292C3C, #03040D);
+            }
+
             .info {
                 height: 34vh;
                 width: 100vw;
@@ -71,12 +92,17 @@ const Mobile = styled.div`
                     margin: 0 20px;
                 }
             }
+
+            .info2 {
+                background: linear-gradient(to left top, #03040D, #292C3C, #03040D);
+            }
         }
 
         .owl-dots {
             margin-top: -1px !important;
-            background: linear-gradient(to right, rgb(126, 213, 111), rgb(40, 180, 133), rgb(0, 130, 77));
+            background: #03040D;
             height: 6vh;
+            padding-top: 12px;
             padding-bottom: 1px;
         }
     }
@@ -113,6 +139,7 @@ function WorkMobile() {
         name: "Natours",
         description: "Exciting Tours and Travels"
     })
+
   return (
     <Container>
         <PowerButton/>
@@ -120,9 +147,9 @@ function WorkMobile() {
         <Mobile>
         <OwlCarousel className='owl-theme' loop margin={10} items={1}>
             <div class='item'>
-                <div className='image'>
-                    <img src={Natours1} className='col1-img1' alt='Natours 1'/>
-                    <img src={Natours2} className='col1-img2' alt='Natours 2'/>
+                <div className='image image1'>
+                    <img src={Natours1} className='col-img col1-img1' alt='Natours 1'/>
+                    <img src={Natours2} className='col-img col1-img2' alt='Natours 2'/>
                 </div>
                 <div className='info'>
                     <a href='' className='link'>{work.site}</a>
@@ -133,11 +160,16 @@ function WorkMobile() {
                 </div>
             </div>
             <div class='item'>
-                <div className='image'>
-
+            <div className='image image2'>
+                    <img src={disney1} className='col-img col2-img1' alt='Natours 1'/>
+                    <img src={disney2} className='col-img col2-img2' alt='Natours 2'/>
                 </div>
-                <div className='info'>
-
+                <div className='info info2'>
+                    <a href='' className='link'>{work.site}</a>
+                    <SiteDescription>
+                        <h2>{work.name}</h2>
+                        <p>{work.description}</p>
+                    </SiteDescription>
                 </div>
             </div>
             <div class='item'>
