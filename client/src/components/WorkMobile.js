@@ -9,11 +9,20 @@ import Natours1 from '../assets/Images/natours-ip.png'
 import Natours2 from '../assets/Images/natours-vid.gif'
 import disney1 from '../assets/Images/disney-mac.gif'
 import disney2 from '../assets/Images/disney-mobile.png'
+import jmdMac from '../assets/Images/jmd-mac.png'
+import jmdS21 from '../assets/Images/jmd-s21.png'
+import rudraTab from '../assets/Images/rudra-tab.png'
+import rudraMac from '../assets/Images/rudra-mac.png'
+import rudraText from '../assets/Images/rudra-text.png'
 
 
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
+
+    .logo {
+        color: #fff;
+    }
 `
 const Mobile = styled.div`
     height: 100vh;
@@ -53,8 +62,8 @@ const Mobile = styled.div`
 
                 .col2-img1 {
                     position: absolute;
-                    bottom: 2vh;
-                    left: 2vw;
+                    bottom: 5vh;
+                    left: 4vw;
                     width: 90vw;
                     height: auto;
                 }
@@ -64,10 +73,50 @@ const Mobile = styled.div`
                     top: -2.5vh;
                     right: .3rem;
                 }
+
+                .col3-img1 {
+                    position: absolute;
+                    bottom: 5vh;
+                    left: 4vw;
+                    width: 90vw;
+                    height: auto;
+                }
+
+                .col3-img2 {
+                    position: absolute;
+                    top: 2vh;
+                    right: 3vw;
+                }
+
+                .col4-img1 {
+                    position: absolute;
+                    bottom: 2vh;
+                    left: 2vw;
+                    width: 90vw;
+                    height: auto;
+                    z-index: 1;
+                }
+
+                .col4-img2 {
+                    position: absolute;
+                    top: 2vh;
+                    right: .75rem;
+                    z-index: 0;
+                }
+
             }
+            
 
             .image2 {
                 background: linear-gradient(to right bottom, #03040D, #292C3C, #03040D);
+            }
+            
+            .image3 {
+                background: linear-gradient(to right, #141e30, #243b55);
+            }
+
+            .image4 {
+                background: linear-gradient(to bottom right, #0C1C66, #6284FC);
             }
 
             .info {
@@ -95,6 +144,14 @@ const Mobile = styled.div`
 
             .info2 {
                 background: linear-gradient(to left top, #03040D, #292C3C, #03040D);
+            }
+
+            .info3 {
+                background: linear-gradient(to left, #141e30, #243b55);
+            }
+
+            .info4 {
+                background: linear-gradient(to top right, #0C1C66, #6284FC);
             }
         }
 
@@ -143,7 +200,7 @@ function WorkMobile() {
   return (
     <Container>
         <PowerButton/>
-        <LogoComponent/>
+        <LogoComponent />
         <Mobile>
         <OwlCarousel className='owl-theme' loop margin={10} items={1}>
             <div class='item'>
@@ -160,7 +217,7 @@ function WorkMobile() {
                 </div>
             </div>
             <div class='item'>
-            <div className='image image2'>
+                <div className='image image2'>
                     <img src={disney1} className='col-img col2-img1' alt='Natours 1'/>
                     <img src={disney2} className='col-img col2-img2' alt='Natours 2'/>
                 </div>
@@ -172,46 +229,35 @@ function WorkMobile() {
                     </SiteDescription>
                 </div>
             </div>
+            
             <div class='item'>
-                <div className='image'>
-
+                <div className='image image3'>
+                    <img src={jmdMac} className='col-img col3-img1' alt='Natours 1'/>
+                    <img src={jmdS21} className='col-img col3-img2' alt='Natours 2'/>
                 </div>
-                <div className='info'>
-
+                <div className='info info3'>
+                    <a href='' className='link'>{work.site}</a>
+                    <SiteDescription>
+                        <h2>{work.name}</h2>
+                        <p>{work.description}</p>
+                    </SiteDescription>
                 </div>
             </div>
+            
             <div class='item'>
-                <div className='image'>
-
+                <div className='image image4'>
+                    <img src={rudraText} className='col-img col4-img1' alt='Natours 1'/>
+                    <img src={rudraTab} className='col-img col4-img2' alt='Natours 2'/>
                 </div>
-                <div className='info'>
-
+                <div className='info info4'>
+                    <a href='' className='link'>{work.site}</a>
+                    <SiteDescription>
+                        <h2>{work.name}</h2>
+                        <p>{work.description}</p>
+                    </SiteDescription>
                 </div>
             </div>
-            <div class='item'>
-                <div className='image'>
-
-                </div>
-                <div className='info'>
-
-                </div>
-            </div>
-            <div class='item'>
-                <div className='image'>
-
-                </div>
-                <div className='info'>
-
-                </div>
-            </div>
-            <div class='item'>
-                <div className='image'>
-
-                </div>
-                <div className='info'>
-
-                </div>
-            </div>
+            
             
         </OwlCarousel>
         </Mobile>
