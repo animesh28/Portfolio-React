@@ -65,7 +65,7 @@ function SoundBar(props) {
     }
     const mq = window.matchMedia("(max-width: 50em)").matches;
   return (
-    <Box onClick={() => handleClick()}>
+    <Box onClick={() => handleClick()} id="sound-bar-icon">
         <Line click={click}/>
         <Line click={click}/>
         <Line click={click}/>
