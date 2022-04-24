@@ -121,10 +121,9 @@ const Mobile = styled.div`
 
                 .col5-img2 {
                     position: absolute;
-                    top: -3vh;
-                    right: 7.5vw;
+                    top: 1vh;
+                    right: 3.5vw;
                     z-index: 0;
-                    width: 50vw;
                 }
                 
                 .col6-img1 {
@@ -138,7 +137,7 @@ const Mobile = styled.div`
 
                 .col6-img2 {
                     position: absolute;
-                    top: -5vh;
+                    top: 1.5vh;
                     right: 5vw;
                     z-index: 0;
                     width: 60vw;
@@ -269,13 +268,57 @@ const SiteDescription = styled.div`
 `
 
 function WorkMobile() {
-    const [work, setWork]  = useState({
-        img1: Natours1,
-        img2: Natours2,
-        site: "https://animesh28.github.io/Natours/",
-        name: "Natours",
-        description: "Exciting Tours and Travels"
-    })
+    const work = [
+        {
+            img1: Natours1,
+            img2: Natours2,
+            site: "https://animesh28.github.io/Natours/",
+            name: "Natours",
+            description: "Exciting Tours and Travels"
+        },
+        {
+            img1: disney1,
+            img2: disney2,
+            site: "https://disneyplus-clone-fe126.web.app/",
+            name: "Disney+ Clone",
+            description: "OTT Platform"
+        },
+        {
+            img1: jmdMac,
+            img2: jmdS21,
+            site: "https://jmddevelopers.com/",
+            name: "JMD Developers",
+            description: "Construction | Real Estate | Joint Venture"
+        },
+        {
+            img1: rudraText,
+            img2: rudraTab,
+            site: "https://rudramotor.com",
+            name: "Rudra Motors",
+            description: "Tata Motors Dealership"
+        },
+        {
+            img1: crazyText,
+            img2: crazyTab,
+            site: "https://crazybakery.in/",
+            name: "Crazy Bakery",
+            description: "Snacks | Namkeens | Cakes | Chips"
+        },
+        {
+            img1: teslaMac,
+            img2: teslaTab,
+            site: "https://animesh-tesla-clone.netlify.app/",
+            name: "Tesla Clone",
+            description: "Electric Cars | Solar Panels"
+        },
+        {
+            img1: maharajaMac,
+            img2: maharajaMob,
+            site: "https://animesh-tesla-clone.netlify.app/",
+            name: "Maharaja Studio",
+            description: "Photography | Cinematography"
+        },
+    ]
 
   return (
     <Container>
@@ -289,10 +332,10 @@ function WorkMobile() {
                     <img src={Natours2} className='col-img col1-img2' alt='Natours 2'/>
                 </div>
                 <div className='info'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[0].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[0].name}</h2>
+                        <p>{work[0].description}</p>
                     </SiteDescription>
                 </div>
             </div>
@@ -302,10 +345,10 @@ function WorkMobile() {
                     <img src={disney2} className='col-img col2-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info2'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[1].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[1].name}</h2>
+                        <p>{work[1].description}</p>
                     </SiteDescription>
                 </div>
             </div>
@@ -316,10 +359,10 @@ function WorkMobile() {
                     <img src={jmdS21} className='col-img col3-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info3'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[2].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[2].name}</h2>
+                        <p>{work[2].description}</p>
                     </SiteDescription>
                 </div>
             </div>
@@ -330,10 +373,10 @@ function WorkMobile() {
                     <img src={rudraTab} className='col-img col4-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info4'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[3].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[3].name}</h2>
+                        <p>{work[3].description}</p>
                     </SiteDescription>
                 </div>
             </div>
@@ -344,10 +387,10 @@ function WorkMobile() {
                     <img src={crazyTab} className='col-img col5-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info5'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[4].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[4].name}</h2>
+                        <p>{work[4].description}</p>
                     </SiteDescription>
                 </div>
             </div>
@@ -358,10 +401,10 @@ function WorkMobile() {
                     <img src={teslaTab} className='col-img col6-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info6'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[5].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[5].name}</h2>
+                        <p>{work[5].description}</p>
                     </SiteDescription>
                 </div>
             </div>
@@ -372,10 +415,10 @@ function WorkMobile() {
                     <img src={maharajaMob} className='col-img col7-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info7'>
-                    <a href='' className='link'>{work.site}</a>
+                    <a href='' className='link'>{work[6].site}</a>
                     <SiteDescription>
-                        <h2>{work.name}</h2>
-                        <p>{work.description}</p>
+                        <h2>{work[6].name}</h2>
+                        <p>{work[6].description}</p>
                     </SiteDescription>
                 </div>
             </div>

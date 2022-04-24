@@ -166,8 +166,15 @@ const AboutQuote = styled.h1`
     }
 
     &:hover {
+        
         &::after, &::before {
             transform: rotate(180deg);
+        }
+
+        @media screen and (max-width: 576px) {
+            &::after, &::before {
+                transform: rotate(180deg) translate(50%,0);
+            }
         }
 
         span.quote {
