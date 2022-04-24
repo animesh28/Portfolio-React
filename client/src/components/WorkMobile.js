@@ -14,6 +14,12 @@ import jmdS21 from '../assets/Images/jmd-s21.png'
 import rudraTab from '../assets/Images/rudra-tab.png'
 import rudraMac from '../assets/Images/rudra-mac.png'
 import rudraText from '../assets/Images/rudra-text.png'
+import crazyTab from '../assets/Images/crazy-tab.png'
+import crazyText from '../assets/Images/crazy-text.png'
+import teslaMac from '../assets/Images/tesla-mac.png'
+import teslaTab from '../assets/Images/tesla-tab.png'
+import maharajaMac from '../assets/Images/maharaja-mac.png'
+import maharajaMob from '../assets/Images/maharaja-ip.png'
 
 
 const Container = styled.div`
@@ -70,7 +76,7 @@ const Mobile = styled.div`
 
                 .col2-img2 {
                     position: absolute;
-                    top: -2.5vh;
+                    top: 1vh;
                     right: .3rem;
                 }
 
@@ -103,6 +109,56 @@ const Mobile = styled.div`
                     right: .75rem;
                     z-index: 0;
                 }
+                
+                .col5-img1 {
+                    position: absolute;
+                    bottom: 2vh;
+                    left: 2vw;
+                    width: 90vw;
+                    height: auto;
+                    z-index: 1;
+                }
+
+                .col5-img2 {
+                    position: absolute;
+                    top: -3vh;
+                    right: 7.5vw;
+                    z-index: 0;
+                    width: 50vw;
+                }
+                
+                .col6-img1 {
+                    position: absolute;
+                    bottom: 2vh;
+                    left: 2vw;
+                    width: 90vw;
+                    height: auto;
+                    z-index: 1;
+                }
+
+                .col6-img2 {
+                    position: absolute;
+                    top: -5vh;
+                    right: 5vw;
+                    z-index: 0;
+                    width: 60vw;
+                }
+
+                .col7-img1 {
+                    position: absolute;
+                    bottom: 5vh;
+                    left: 4vw;
+                    width: 90vw;
+                    height: auto;
+                    z-index: 2;
+                }
+
+                .col7-img2 {
+                    position: absolute;
+                    top: 1vh;
+                    right: .3rem;
+                    z-index: 1;
+                }
 
             }
             
@@ -117,6 +173,18 @@ const Mobile = styled.div`
 
             .image4 {
                 background: linear-gradient(to bottom right, #0C1C66, #6284FC);
+            }
+
+            .image5 {
+                background: linear-gradient(to left, #333333, #dd1818);
+            }
+
+            .image6 {
+                background: linear-gradient(to right bottom, #b92b27, #1565c0);
+            }
+
+            .image7 {
+                background: linear-gradient(to top left, #FF177C, #AA2820);
             }
 
             .info {
@@ -152,6 +220,18 @@ const Mobile = styled.div`
 
             .info4 {
                 background: linear-gradient(to top right, #0C1C66, #6284FC);
+            }
+
+            .info5 {
+                background: linear-gradient(to right, #333333, #dd1818);
+            }
+
+            .info6 {
+                background: linear-gradient(to left top, #b92b27, #1565c0);
+            }
+
+            .info7{
+                background: linear-gradient(to bottom right, #FF177C, #AA2820);
             }
         }
 
@@ -250,6 +330,48 @@ function WorkMobile() {
                     <img src={rudraTab} className='col-img col4-img2' alt='Natours 2'/>
                 </div>
                 <div className='info info4'>
+                    <a href='' className='link'>{work.site}</a>
+                    <SiteDescription>
+                        <h2>{work.name}</h2>
+                        <p>{work.description}</p>
+                    </SiteDescription>
+                </div>
+            </div>
+            
+            <div class='item'>
+                <div className='image image5'>
+                    <img src={crazyText} className='col-img col5-img1' alt='Natours 1'/>
+                    <img src={crazyTab} className='col-img col5-img2' alt='Natours 2'/>
+                </div>
+                <div className='info info5'>
+                    <a href='' className='link'>{work.site}</a>
+                    <SiteDescription>
+                        <h2>{work.name}</h2>
+                        <p>{work.description}</p>
+                    </SiteDescription>
+                </div>
+            </div>
+            
+            <div class='item'>
+                <div className='image image6'>
+                    <img src={teslaMac} className='col-img col6-img1' alt='Natours 1'/>
+                    <img src={teslaTab} className='col-img col6-img2' alt='Natours 2'/>
+                </div>
+                <div className='info info6'>
+                    <a href='' className='link'>{work.site}</a>
+                    <SiteDescription>
+                        <h2>{work.name}</h2>
+                        <p>{work.description}</p>
+                    </SiteDescription>
+                </div>
+            </div>
+            
+            <div class='item'>
+                <div className='image image7'>
+                    <img src={maharajaMac} className='col-img col7-img1' alt='Natours 1'/>
+                    <img src={maharajaMob} className='col-img col7-img2' alt='Natours 2'/>
+                </div>
+                <div className='info info7'>
                     <a href='' className='link'>{work.site}</a>
                     <SiteDescription>
                         <h2>{work.name}</h2>
