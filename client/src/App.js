@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom"
 import SoundBar from "./subcomponents/SoundBar"
 import { lazy, Suspense } from "react"
 import Loading from "./subcomponents/Loading"
-import Div100vh from 'react-div-100vh'
+import { use100vh } from 'react-div-100vh'
 
 function App() {
   const location = useLocation()
@@ -17,7 +17,8 @@ function App() {
   const SkillsPage = lazy(() => import("./components/MySkills"))
   const About = lazy(() => import("./components/About"))
   const mq = window.matchMedia("(max-width: 50em)").matches;
-  return <Div100vh>
+  const fullHeight = use100vh();
+  return <div style={{ height: fullHeight }}>
     <GlobalStyles/>
     <ThemeProvider theme={lightTheme}>
     <Suspense fallback={<Loading />}>
@@ -33,7 +34,7 @@ function App() {
         </AnimatePresence>
       </Suspense>
     </ThemeProvider>
-    </Div100vh>
+    </div>
     
 }
 
