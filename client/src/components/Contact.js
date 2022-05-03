@@ -333,11 +333,16 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 70vw;
+
+  @media screen and (max-width: 567px) {
+    width: 80vw;
+  }
 `
 const ContactHead = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-top: 3vh;
 
   h1 {
     color: #242458;
@@ -457,11 +462,6 @@ const SocialIcons = styled.div`
   bottom: 25px;
   display: flex;
 
-  @media screen and (max-width: 567px) {
-    bottom: 20vh;
-  }
-
-
   & > a {
     display: flex;
     justify-content: center;
@@ -475,6 +475,10 @@ const SocialIcons = styled.div`
     &:hover {
       background: #fa949d;
     }
+  }
+
+  @media screen and (max-width: 567px) {
+    bottom: 17vh;
   }
 `
 

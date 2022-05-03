@@ -98,6 +98,7 @@ const AboutQuote = styled.h1`
         font-size: 30px;
         position: relative;
         margin: 0 2.5rem;
+        margin-top: 10vh;
         height: 40vh;
         width: 60vw;
     }
@@ -224,6 +225,7 @@ const AboutEmoji = styled.div`
 
     @media screen and (max-width: 576px){
         position: relative;
+        margin-top: 10vh;
     }
     
 
@@ -326,6 +328,9 @@ const ContactInfo = styled.div`
         margin-top: 4rem;
         width: 90vw;
 
+        a {
+            margin: 3vh 0;
+        }
     }
 
   a {
