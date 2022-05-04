@@ -24,7 +24,7 @@ import maharajaMob from '../assets/Images/maharaja-ip.png'
 
 const Container = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 
     .logo {
         color: #fff;
