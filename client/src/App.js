@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom"
 import SoundBar from "./subcomponents/SoundBar"
 import { lazy, Suspense } from "react"
 import Loading from "./subcomponents/Loading"
-import { use100vh } from 'react-div-100vh'
+import useVH from 'react-viewport-height';
 
 function App() {
   const location = useLocation()
@@ -17,8 +17,12 @@ function App() {
   const SkillsPage = lazy(() => import("./components/MySkills"))
   const About = lazy(() => import("./components/About"))
   const mq = window.matchMedia("(max-width: 50em)").matches;
-  const fullHeight = use100vh();
-  return <div style={{ height: fullHeight }}>
+  const vh = useVH();
+ 
+    
+  
+
+  return <div style={{ height: `${100 * vh}px` }}>
     <GlobalStyles/>
     <ThemeProvider theme={lightTheme}>
     <Suspense fallback={<Loading />}>

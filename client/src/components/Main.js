@@ -9,7 +9,6 @@ import { YinYang } from './AllSvgs'
 import Intro from './Intro'
 import { motion } from 'framer-motion'
 import { mediaQueries } from './Themes'
-import Div100vh from 'react-div-100vh'
 
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
