@@ -1,19 +1,19 @@
-import React, { lazy, useState, Suspense } from 'react'
-import { NavLink } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components'
-import ContactMsg from '../subcomponents/ContactMsg'
-import LogoComponent from '../subcomponents/LogoComponent'
-import PowerButton from '../subcomponents/PowerButton'
-import SocialIcons from '../subcomponents/SocialIcons'
-import { YinYang } from './AllSvgs'
-import Intro from './Intro'
-import { motion } from 'framer-motion'
-import { mediaQueries } from './Themes'
+import React, { lazy, useState, Suspense } from "react";
+import { NavLink } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
+import ContactMsg from "../subcomponents/ContactMsg";
+import LogoComponent from "../subcomponents/LogoComponent";
+import PowerButton from "../subcomponents/PowerButton";
+import SocialIcons from "../subcomponents/SocialIcons";
+import { YinYang } from "./AllSvgs";
+import Intro from "./Intro";
+import { motion } from "framer-motion";
+import { mediaQueries } from "./Themes";
 
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 
@@ -84,7 +84,6 @@ const Center = styled.button`
     height: ${(props) => (props.click ? "40px" : "150px")};
   }
 `;
-
 
 const Contact = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
@@ -161,13 +160,11 @@ const DarkDiv = styled.div`
   `};
 `;
 
-
 const Main = () => {
-  const [YingYang, setYingYang] = useState(false)
+  const [YingYang, setYingYang] = useState(false);
   const [path, setpath] = useState("");
-  
 
-  const handleYingYang = () => setYingYang(!YingYang)
+  const handleYingYang = () => setYingYang(!YingYang);
 
   const moveY = {
     y: "-100%",
@@ -176,94 +173,53 @@ const Main = () => {
     x: `${path === "work" ? "100%" : "-100%"}`,
   };
   const mq = window.matchMedia("(max-width: 50em)").matches;
-  
 
   return (
-      <MainContainer
-        key="modal"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={path === "about" || path === "skills" ? moveY : moveX}
-        transition={{ duration: 0.5 }}
-      >
-        <DarkDiv click={YingYang} />
-        <Container>
-          <LogoComponent theme={YingYang ? "dark" : "light"} />
-          <PowerButton />
+    <MainContainer
+      key="modal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={path === "about" || path === "skills" ? moveY : moveX}
+      transition={{ duration: 0.5 }}
+    >
+      <DarkDiv click={YingYang} />
+      <Container>
+        <LogoComponent theme={YingYang ? "dark" : "light"} />
+        <PowerButton />
+        {mq ? (
+          <SocialIcons click={YingYang} theme="light" />
+        ) : (
+          <SocialIcons click={YingYang} theme={YingYang ? "dark" : "light"} />
+        )}
+        <Center click={YingYang}>
           {mq ? (
-            <SocialIcons click={YingYang} theme="light" />
+            <YinYang
+              onClick={() => handleYingYang()}
+              width={YinYang ? 80 : 150}
+              height={YinYang ? 80 : 150}
+              fill="currentColor"
+            />
           ) : (
-            <SocialIcons click={YingYang} theme={YingYang ? "dark" : "light"} />
-          )}
-          <Center click={YingYang}>
-            {mq ? (
-              <YinYang
-                onClick={() => handleYingYang()}
-                width={YinYang ? 80 : 150}
-                height={YinYang ? 80 : 150}
-                fill="currentColor"
-              />
-            ) : (
-              <YinYang
-                onClick={() => handleYingYang()}
-                width={YinYang ? 120 : 200}
-                height={YingYang ? 120 : 200}
-                fill="currentColor"
-              />
-            )}
-
-            <span>click here</span>
-          </Center>
-
-          {mq ? (
-            <ContactMsg
-              click={+YingYang}
-              />
-          ) : (
-            <ContactMsg
-              click={+false}
-              />
+            <YinYang
+              onClick={() => handleYingYang()}
+              width={YinYang ? 120 : 200}
+              height={YingYang ? 120 : 200}
+              fill="currentColor"
+            />
           )}
 
-          {mq ? (
-            <Contact click={+YingYang} onClick={() => setpath("blog")} to="/contact">
-              <motion.h2
-                initial={{
-                  y: -200,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                animate={{
-                  y: 0,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Contact
-              </motion.h2>
-            </Contact>
-          ) : (
-            <Contact click={+false} onClick={() => setpath("blog")} to="/contact">
-              <motion.h2
-                initial={{
-                  y: -200,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                animate={{
-                  y: 0,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Contact
-              </motion.h2>
-            </Contact>
-          )}
-        
-          <Work click={+YingYang} to="/work">
+          <span>click here</span>
+        </Center>
+
+        {mq ? <ContactMsg click={+YingYang} /> : <ContactMsg click={+false} />}
+
+        {mq ? (
+          <Contact
+            click={+YingYang}
+            onClick={() => setpath("blog")}
+            to="/contact"
+          >
             <motion.h2
-              onClick={() => setpath("work")}
               initial={{
                 y: -200,
                 transition: { type: "spring", duration: 1.5, delay: 1 },
@@ -275,57 +231,92 @@ const Main = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              Work
+              Contact
             </motion.h2>
-          </Work>
-
-          <BottomBar>
-            <About
-              onClick={() => setYingYang(false)}
-              click={mq ? +false : +YingYang}
-              to="/about"
+          </Contact>
+        ) : (
+          <Contact click={+false} onClick={() => setpath("blog")} to="/contact">
+            <motion.h2
+              initial={{
+                y: -200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <motion.h2
-                onClick={() => setpath("about")}
-                initial={{
-                  y: 200,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                animate={{
-                  y: 0,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                About.
-              </motion.h2>
-            </About>
+              Contact
+            </motion.h2>
+          </Contact>
+        )}
 
-            <Skills to="/skills">
-              <motion.h2
-                onClick={() => setpath("skills")}
-                initial={{
-                  y: 200,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                animate={{
-                  y: 0,
-                  transition: { type: "spring", duration: 1.5, delay: 1 },
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                My Skills.
-              </motion.h2>
-            </Skills>
-          </BottomBar>
-        </Container>
+        <Work click={+YingYang} to="/work">
+          <motion.h2
+            onClick={() => setpath("work")}
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Work
+          </motion.h2>
+        </Work>
 
-        {YingYang ? <Intro click={YingYang} /> : null}
-      </MainContainer>
-  )
-}
+        <BottomBar>
+          <About
+            onClick={() => setYingYang(false)}
+            click={mq ? +false : +YingYang}
+            to="/about"
+          >
+            <motion.h2
+              onClick={() => setpath("about")}
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              About.
+            </motion.h2>
+          </About>
 
-export default Main
+          <Skills to="/skills">
+            <motion.h2
+              onClick={() => setpath("skills")}
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              My Skills.
+            </motion.h2>
+          </Skills>
+        </BottomBar>
+      </Container>
 
+      {YingYang ? <Intro click={YingYang} /> : null}
+    </MainContainer>
+  );
+};
+
+export default Main;
