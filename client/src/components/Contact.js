@@ -23,6 +23,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
+  useEffect(() => {
+    console.log("load");
+  }, []);
+
   const [loading, setLoading] = useState(false);
   function handleClick() {
     setLoading(true);

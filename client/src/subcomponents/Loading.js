@@ -1,11 +1,9 @@
-import styled from "styled-components"
-import React from "react"
+import styled from "styled-components";
+import React from "react";
 
 const Box = styled.div`
   width: 100vw;
   height: 100vh;
-  background: ${(props) => props.theme.text};
-  color: ${(props) => props.theme.body};
 
   display: flex;
   justify-content: center;
