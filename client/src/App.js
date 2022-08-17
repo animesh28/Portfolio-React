@@ -10,7 +10,6 @@ import { lazy, Suspense } from "react";
 import Loading from "./subcomponents/Loading";
 import useVH from "react-viewport-height";
 import axios from "axios";
-axios.defaults.baseURL = "https://animesh28-portfolio-server.herokuapp.com";
 const MainPage = lazy(() => import("./components/Main"));
 const WorkPage = lazy(() => import("./components/WorkRespPage"));
 const ContactPage = lazy(() => import("./components/Contact"));
@@ -22,7 +21,7 @@ function App() {
   const vh = useVH();
 
   return (
-    <>
+    <div style={{ height: `${100 * vh}px` }}>
       <GlobalStyles />
       <ThemeProvider theme={lightTheme}>
         <Suspense fallback={<Loading />}>
@@ -38,7 +37,7 @@ function App() {
           </AnimatePresence>
         </Suspense>
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 
