@@ -69,42 +69,9 @@ function Contact() {
       other: Yup.boolean(),
     }),
     onSubmit: (values, { resetForm }) => {
-      handleSubmit(values);
+      handleSubmit(values, setLoading);
     },
   });
-
-  const handleSubmit = async (values) => {
-    try {
-      await axios.post(
-        "https://animesh28-portfolio-server.herokuapp.com/send_email",
-        {
-          ...values,
-        }
-      );
-
-      toast.success("E-mail sent successfully", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        onOpen: setLoading(false),
-      });
-    } catch (error) {
-      toast.error(error.message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        onOpen: setLoading(false),
-      });
-    }
-  };
 
   const errorHelper = (formik, values) => {
     return {
@@ -185,7 +152,7 @@ function Contact() {
               </NavLink>
             </SocialIcons>
           </ContactCTA>
-          <ContactForm onSubmit={() => formik.handleSubmit()}>
+          <ContactForm onSubmit={formik.handleSubmit}>
             <FormGroup>
               <TextField
                 id="standard-basic"
@@ -341,6 +308,39 @@ function Contact() {
     </MainContainer>
   );
 }
+
+const handleSubmit = async (values, setLoading) => {
+  try {
+    await axios.post(
+      "https://animesh28-portfolio-server.herokuapp.com/send_email",
+      {
+        ...values,
+      }
+    );
+
+    toast.success("E-mail sent successfully", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      onOpen: setLoading(false),
+    });
+  } catch (error) {
+    toast.error(error.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      onOpen: setLoading(false),
+    });
+  }
+};
 
 const MainContainer = styled.div`
   width: 100vw;
