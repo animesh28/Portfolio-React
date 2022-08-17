@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import LogoComponent from "../subcomponents/LogoComponent";
 import PowerButton from "../subcomponents/PowerButton";
@@ -23,7 +23,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
-  const [loading, setLoading] = React.useState(false);
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
+
+  const [loading, setLoading] = useState(false);
   function handleClick() {
     setLoading(true);
     formik.handleSubmit();
