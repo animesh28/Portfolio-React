@@ -309,9 +309,9 @@ function Contact() {
   );
 }
 
-const handleSubmit = async (values, setLoading) => {
+const handleSubmit = (values, setLoading) => {
   try {
-    await axios.post("/send_email", {
+    axios.post("/send_email", {
       ...values,
     });
 
