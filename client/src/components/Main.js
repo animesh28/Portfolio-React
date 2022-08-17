@@ -13,7 +13,7 @@ import { mediaQueries } from "./Themes";
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: relative;
   overflow: hidden;
 
