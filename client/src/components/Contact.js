@@ -311,12 +311,9 @@ function Contact() {
 
 const handleSubmit = async (values, setLoading) => {
   try {
-    await axios.post(
-      "https://animesh28-portfolio-server.herokuapp.com/send_email",
-      {
-        ...values,
-      }
-    );
+    await axios.post("/send_email", {
+      ...values,
+    });
 
     toast.success("E-mail sent successfully", {
       position: "bottom-right",
