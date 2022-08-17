@@ -11,13 +11,13 @@ import Loading from "./subcomponents/Loading";
 import useVH from "react-viewport-height";
 import axios from "axios";
 axios.defaults.baseURL = "https://animesh28-portfolio-server.herokuapp.com";
+const MainPage = lazy(() => import("./components/Main"));
+const WorkPage = lazy(() => import("./components/WorkRespPage"));
+const ContactPage = lazy(() => import("./components/Contact"));
+const SkillsPage = lazy(() => import("./components/MySkills"));
+const About = lazy(() => import("./components/About"));
 function App() {
   const location = useLocation();
-  const MainPage = lazy(() => import("./components/Main"));
-  const WorkPage = lazy(() => import("./components/WorkRespPage"));
-  const ContactPage = lazy(() => import("./components/Contact"));
-  const SkillsPage = lazy(() => import("./components/MySkills"));
-  const About = lazy(() => import("./components/About"));
   const mq = window.matchMedia("(max-width: 50em)").matches;
   const vh = useVH();
 
