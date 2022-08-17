@@ -22,7 +22,8 @@ function App() {
   const vh = useVH();
 
   return (
-    <div style={{ height: `${100 * vh}px` }}>
+    // <div style={{ height: `${100 * vh}px` }}>
+    <>
       <GlobalStyles />
       <ThemeProvider theme={lightTheme}>
         <Suspense fallback={<Loading />}>
@@ -38,7 +39,8 @@ function App() {
           </AnimatePresence>
         </Suspense>
       </ThemeProvider>
-    </div>
+      {/* </div> */}
+    </>
   );
 }
 
