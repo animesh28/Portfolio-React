@@ -23,10 +23,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
-  useEffect(() => {
-    window.history.scrollRestoration = "manual";
-  }, []);
-
   const [loading, setLoading] = useState(false);
   function handleClick() {
     setLoading(true);
@@ -156,7 +152,7 @@ function Contact() {
               </NavLink>
             </SocialIcons>
           </ContactCTA>
-          <ContactForm onSubmit={formik.handleSubmit}>
+          <ContactForm onSubmit={() => formik.handleSubmit()}>
             <FormGroup>
               <TextField
                 id="standard-basic"
@@ -296,7 +292,7 @@ function Contact() {
 
             <SubmitBtnWrap>
               <StyledLoadingButton
-                onClick={handleClick}
+                onClick={() => handleClick()}
                 endIcon={<SendIcon />}
                 loading={loading}
                 loadingPosition="end"
@@ -313,9 +309,9 @@ function Contact() {
   );
 }
 
-const handleSubmit = (values, setLoading) => {
+const handleSubmit = async (values, setLoading) => {
   try {
-    axios.post("/send_email", {
+    await axios.post("/send_email", {
       ...values,
     });
 
@@ -327,7 +323,7 @@ const handleSubmit = (values, setLoading) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      onOpen: setLoading(false),
+      onOpen: () => setLoading(false),
     });
   } catch (error) {
     toast.error(error.message, {
@@ -338,7 +334,7 @@ const handleSubmit = (values, setLoading) => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      onOpen: setLoading(false),
+      onOpen: () => setLoading(false),
     });
   }
 };

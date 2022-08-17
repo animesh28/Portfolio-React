@@ -10,11 +10,8 @@ import { lazy, Suspense } from "react";
 import Loading from "./subcomponents/Loading";
 import useVH from "react-viewport-height";
 import axios from "axios";
-
+axios.defaults.baseURL = "https://animesh28-portfolio-server.herokuapp.com";
 function App() {
-  useEffect(() => {
-    axios.defaults.baseURL = "https://animesh28-portfolio-server.herokuapp.com";
-  }, []);
   const location = useLocation();
   const MainPage = lazy(() => import("./components/Main"));
   const WorkPage = lazy(() => import("./components/WorkRespPage"));
