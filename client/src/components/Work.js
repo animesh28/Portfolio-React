@@ -48,6 +48,8 @@ function Work() {
     teslaTabRef = useRef(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     let t1 = new Timeline({ delay: 0.3 });
 
     // Fade Previous Slide Transition Next && Slider Animation
