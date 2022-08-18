@@ -1,11 +1,10 @@
-import React from 'react'
-import styled, {keyframes} from 'styled-components'
-import { mediaQueries } from '../components/Themes'
-import { motion } from 'framer-motion'
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
 const Card = styled(motion.div)`
   color: ${(props) => props.theme.text};
-  background: rgba(255, 255, 255, .65);
+  background: rgba(255, 255, 255, 0.65);
   padding: 2rem;
   width: 26vw;
   height: 60vh;
@@ -16,15 +15,15 @@ const Card = styled(motion.div)`
   perspective: 150rem;
   -moz-perspective: 150rem;
 
-  @media screen and (max-width: 567px){
+  @media screen and (max-width: 567px) {
     width: 80vw;
     div.cardSide {
       height: 60vh;
     }
-    }
+  }
 
   div.cardSide {
-    transition: all .8s ease;
+    transition: all 0.8s ease;
     position: absolute;
     top: 0;
     left: 0;
@@ -36,25 +35,19 @@ const Card = styled(motion.div)`
     justify-content: space-between;
     overflow: hidden;
     border-radius: 16px;
-
-    
   }
 
-  
-  
-  &:hover .cardFront{
+  &:hover .cardFront {
     transform: rotateY(-180deg);
   }
 
-
-  &:hover .cardBack{
+  &:hover .cardBack {
     transform: rotateY(0deg);
   }
-`
+`;
 const CardFront = styled.div`
   font-family: "Ubuntu Mono", monospace;
-
-`
+`;
 
 const scale = keyframes`
   0% {
@@ -66,35 +59,35 @@ const scale = keyframes`
   100% {
     transform: translate(-50%, -50%) scale(1);
   }
-`
+`;
 const CardBack = styled.div`
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 
-    div.icon-row {
+  div.icon-row {
     display: flex;
     justify-content: space-between;
-    }
+  }
 
-    img.icon {
-      width: 80px;
-      background-color: rgb(240,240,240);
-      padding: 10px;
-      border-radius: 20px;
-    }
+  img.icon {
+    width: 80px;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+    border-radius: 20px;
+  }
 
-    img.middleIcon {
-      width: 70px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: ${scale} 4s ease-in infinite;
-    }
-`
+  img.middleIcon {
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ${scale} 4s ease-in infinite;
+  }
+`;
 
 const CardImg = styled.img`
-  height: 90%
-`
+  height: 90%;
+`;
 
 const CardTitle = styled.div`
   display: flex;
@@ -110,7 +103,7 @@ const CardTitle = styled.div`
     font-size: 25px;
     margin-left: 13px;
   }
-`
+`;
 
 const progress = keyframes`
   0% {
@@ -119,96 +112,100 @@ const progress = keyframes`
   100% {
     background-size:100% 100%;
   }
-`
+`;
 
 const XShape = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border: 7px solid white;
+
+  span {
     position: absolute;
     top: 0;
     left: 0;
-    right:0;
+    right: 0;
     bottom: 0;
     display: inline-block;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    border: 7px solid white;
+  }
 
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right:0;
-      bottom: 0;
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-    }
+  span:nth-of-type(1) {
+    clip-path: polygon(3% 0, 0 0, 50% 50%);
+    background: linear-gradient(#000, #000) left no-repeat, #ccc;
+    animation: ${progress} 4s steps(10, start) infinite;
+    animation-timing-function: ease-in;
+  }
 
-    span:nth-of-type(1) { 
-      clip-path: polygon(3% 0, 0 0, 50% 50%);
-      background: linear-gradient(#000,#000) left no-repeat,#ccc;
-      animation: ${progress} 4s steps(10,start) infinite;
-      animation-timing-function: ease-in;
-    }
+  span:nth-of-type(2) {
+    clip-path: polygon(97% 0, 100% 0, 50% 50%);
+    background: linear-gradient(#000, #000) left no-repeat, #ccc;
+    animation: ${progress} 4s steps(10, start) infinite;
+    animation-timing-function: ease-in;
+  }
 
-    span:nth-of-type(2) { 
-      clip-path: polygon(97% 0, 100% 0, 50% 50%);
-      background: linear-gradient(#000,#000) left no-repeat,#ccc;
-      animation: ${progress} 4s steps(10,start) infinite;
-      animation-timing-function: ease-in;
-    }
+  span:nth-of-type(3) {
+    clip-path: polygon(0 100%, 3% 100%, 50% 50%);
+    background: linear-gradient(#000, #000) left no-repeat, #ccc;
+    animation: ${progress} 4s steps(10, start) infinite;
+    animation-timing-function: ease-in;
+  }
 
-    span:nth-of-type(3) { 
-      clip-path: polygon(0 100%, 3% 100%, 50% 50%);
-      background: linear-gradient(#000,#000) left no-repeat,#ccc;
-      animation: ${progress} 4s steps(10,start) infinite;
-      animation-timing-function: ease-in;
-    }
-
-    span:nth-of-type(4) { 
-      clip-path: polygon(97% 100%, 100% 100%, 50% 50%);
-      background: linear-gradient(#000,#000) left no-repeat,#ccc;
-      animation: ${progress} 4s steps(10,start) infinite;
-      animation-timing-function: ease-in;
-    }
-`
+  span:nth-of-type(4) {
+    clip-path: polygon(97% 100%, 100% 100%, 50% 50%);
+    background: linear-gradient(#000, #000) left no-repeat, #ccc;
+    animation: ${progress} 4s steps(10, start) infinite;
+    animation-timing-function: ease-in;
+  }
+`;
 
 function CardComponent(props) {
-    return (
-        <Card
-          initial = {props.initial}
-          animate = {props.animate}
-          transition = {props.transition}
-        >
-            <CardFront className='cardSide cardFront'>
-                <CardImg src={props.img}/>
-                <CardTitle>
-                <img src={props.logo} />
-                <span>{props.skill}</span>
-                </CardTitle>
-            </CardFront>
-            <CardBack className='cardSide cardBack'>
-                <XShape>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </XShape>
-                <div className='icon-row'>
-                    <img src={props.icon1} className='icon'/>
-                    
-                    <img src={props.icon2} className="icon"/>
-                </div>
-                
-                <img src={props.middleIcon} className='icon middleIcon'/>
-                
-                <div className='icon-row'>
-                    <img src={props.icon3} className='icon'/>
-                    <img src={props.icon4} className='icon'/>
-                </div>
-            </CardBack>
-        </Card>
-        )
-    }
-    
-    export default CardComponent
+  return (
+    <Card
+      initial={props.initial}
+      animate={props.animate}
+      transition={props.transition}
+    >
+      <CardFront className="cardSide cardFront">
+        <CardImg src={props.img} />
+        <CardTitle>
+          <img src={props.logo} alt="front" />
+          <span>{props.skill}</span>
+        </CardTitle>
+      </CardFront>
+      <CardBack className="cardSide cardBack">
+        <XShape>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </XShape>
+        <div className="icon-row">
+          <img src={props.icon1} className="icon" alt="icon" />
+
+          <img src={props.icon2} className="icon" alt="icon" />
+        </div>
+
+        <img
+          src={props.middleIcon}
+          className="icon middleIcon"
+          alt="middleIcon"
+        />
+
+        <div className="icon-row">
+          <img src={props.icon3} className="icon" alt="icon" />
+          <img src={props.icon4} className="icon" alt="icon" />
+        </div>
+      </CardBack>
+    </Card>
+  );
+}
+
+export default CardComponent;

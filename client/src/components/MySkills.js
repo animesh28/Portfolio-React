@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import LogoComponent from "../subcomponents/LogoComponent";
@@ -108,7 +108,6 @@ const IconLicense = styled.div`
 
 function MySkills() {
   const [questionMark, setQuestionMark] = useState(null);
-  const license = useRef(null);
 
   useEffect(() => {
     if (questionMark != null) {
@@ -135,49 +134,92 @@ function MySkills() {
             <a
               target="_blank"
               href="https://icons8.com/icon/5FzppYj4UHs3/color"
+              rel="noreferrer"
             >
               Color icon by Icons8
             </a>
             <a
               target="_blank"
               href="https://icons8.com/icon/42472/question-mark"
+              rel="noreferrer"
             >
               Question Mark icon by Icons8
             </a>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://icons8.com/icon/oR579SiWPF2c/coding"
             >
               Coding icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/KMNIRDqAfaOt/html">
+            <a
+              href="https://icons8.com/icon/KMNIRDqAfaOt/html"
+              target="_blank"
+              rel="noreferrer"
+            >
               Html icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/cSmDCyXt8hcT/css">
+            <a
+              href="https://icons8.com/icon/cSmDCyXt8hcT/css"
+              target="_blank"
+              rel="noreferrer"
+            >
               Css icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/hKrJAdwqbGgG/javascript">
+            <a
+              href="https://icons8.com/icon/hKrJAdwqbGgG/javascript"
+              target="_blank"
+              rel="noreferrer"
+            >
               JavaScript icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/YYYhFVbH4vFv/react-native">
+            <a
+              href="https://icons8.com/icon/YYYhFVbH4vFv/react-native"
+              target="_blank"
+              rel="noreferrer"
+            >
               React Native icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/QeAlg41wwUkb/design">
+            <a
+              href="https://icons8.com/icon/QeAlg41wwUkb/design"
+              target="_blank"
+              rel="noreferrer"
+            >
               Design icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/p7o7QWCx7SvS/coding">
+            <a
+              href="https://icons8.com/icon/p7o7QWCx7SvS/coding"
+              target="_blank"
+              rel="noreferrer"
+            >
               Coding icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/1q0xlAMYQeet/php-server">
+            <a
+              href="https://icons8.com/icon/1q0xlAMYQeet/php-server"
+              target="_blank"
+              rel="noreferrer"
+            >
               PHP Server icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/39858/mysql-logo">
+            <a
+              href="https://icons8.com/icon/39858/mysql-logo"
+              target="_blank"
+              rel="noreferrer"
+            >
               MySQL Logo icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/t9oCxEN7McHZ/nodejs">
+            <a
+              href="https://icons8.com/icon/t9oCxEN7McHZ/nodejs"
+              target="_blank"
+              rel="noreferrer"
+            >
               Nodejs icon by Icons8
             </a>
-            <a href="https://icons8.com/icon/Y9VdL7V5XPIc/mongodb-a-cross-platform-document-oriented-database-program">
+            <a
+              href="https://icons8.com/icon/Y9VdL7V5XPIc/mongodb-a-cross-platform-document-oriented-database-program"
+              target="_blank"
+              rel="noreferrer"
+            >
               MongoDB icon by Icons8
             </a>
           </div>
@@ -185,6 +227,7 @@ function MySkills() {
             src="https://img.icons8.com/dotty/80/000000/question-mark.png"
             onMouseOver={() => setQuestionMark(true)}
             onMouseOut={() => setQuestionMark(false)}
+            alt="question mark"
           />
         </IconLicense>
         <LogoComponent />

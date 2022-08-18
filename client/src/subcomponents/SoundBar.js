@@ -1,31 +1,31 @@
-import React, { useRef, useState } from 'react'
-import styled, { keyframes } from 'styled-components'
-import music from '../assets/audio/u-said-it-v13-1167.mp3'
+import React, { useRef, useState } from "react";
+import styled, { keyframes } from "styled-components";
+import music from "../assets/audio/u-said-it-v13-1167.mp3";
 
 const Box = styled.div`
-    display: flex;
-    cursor: pointer;
-    position: fixed;
-    left: 9rem;
-    top: 3rem;
-    z-index: 25;
+  display: flex;
+  cursor: pointer;
+  position: fixed;
+  left: 9rem;
+  top: 3rem;
+  z-index: 25;
 
-    &>*:nth-child(1) {
-        animation-delay: .2s;
-    }
-    &>*:nth-child(2) {
-        animation-delay: .3s;
-    }
-    &>*:nth-child(3) {
-        animation-delay: .4s;
-    }
-    &>*:nth-child(4) {
-        animation-delay: .5s;
-    }
-    &>*:nth-child(5) {
-        animation-delay: .6s;
-    }
-`
+  & > *:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  & > *:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  & > *:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  & > *:nth-child(4) {
+    animation-delay: 0.5s;
+  }
+  & > *:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+`;
 
 const play = keyframes`
     0% {
@@ -38,44 +38,39 @@ const play = keyframes`
         transform: scaleY(1);
     }
 
-`
+`;
 
 const Line = styled.span`
-    background: ${props => props.theme.text};
-    border: 1px solid ${props => props.theme.body};
-    animation: ${play} 1s ease infinite;
-    height: 1rem;
-    width: 4px;
-    margin: 0 .1rem;
-    animation-play-state: ${props => props.click ? 'running' : 'paused'};
-`
+  background: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.body};
+  animation: ${play} 1s ease infinite;
+  height: 1rem;
+  width: 4px;
+  margin: 0 0.1rem;
+  animation-play-state: ${(props) => (props.click ? "running" : "paused")};
+`;
 
 function SoundBar(props) {
+  const ref = useRef(null);
+  const [click, setClick] = useState(false);
 
-    const ref = useRef(null)
-    const [click, setClick] = useState(false)
+  const handleClick = () => {
+    setClick(!click);
 
-    const handleClick = () => {
-        setClick(!click)
-
-        if(!click)
-            ref.current.play()
-        else
-            ref.current.pause()
-    }
-    const mq = window.matchMedia("(max-width: 50em)").matches;
+    if (!click) ref.current.play();
+    else ref.current.pause();
+  };
   return (
     <Box onClick={() => handleClick()} id="sound-bar-icon">
-        <Line click={click}/>
-        <Line click={click}/>
-        <Line click={click}/>
-        <Line click={click}/>
-        <Line click={click}/>
+      <Line click={click} />
+      <Line click={click} />
+      <Line click={click} />
+      <Line click={click} />
+      <Line click={click} />
 
-        <audio src={music} ref={ref} loop/>
-
+      <audio src={music} ref={ref} loop />
     </Box>
-  )
+  );
 }
 
-export default SoundBar
+export default SoundBar;

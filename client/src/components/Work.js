@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { Timeline, TweenLite } from "gsap/gsap-core";
+import { Timeline } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
@@ -14,7 +14,6 @@ import maharajaMac from "../assets/Images/maharaja-mac.png";
 import maharajaMob from "../assets/Images/maharaja-ip.png";
 import crazyMac from "../assets/Images/crazy-mac.png";
 import crazyTab from "../assets/Images/crazy-tab.png";
-import { ScrollToPlugin } from "gsap/all";
 import PowerButton from "../subcomponents/PowerButton";
 import LogoComponent from "../subcomponents/LogoComponent";
 import natoursBg from "../assets/Images/natours-form.png";
@@ -696,7 +695,15 @@ function Work() {
       scrub: 1,
       id: "transition6",
     });
-  }, []);
+  }, [
+    crazyMacRef,
+    disneyMacRef,
+    jmdS21Ref,
+    maharajaMacRef,
+    natoursGifVid,
+    rudraMacRef,
+    teslaMacRef,
+  ]);
 
   useLayoutEffect(() => {
     return () => {
@@ -790,7 +797,12 @@ function Work() {
             }}
             className="question"
           />
-          <a href={textData.url} target="_blank" className="live-link">
+          <a
+            href={textData.url}
+            target="_blank"
+            className="live-link"
+            rel="noreferrer"
+          >
             <LinkIcon />
             <span></span>
             {textData.url}

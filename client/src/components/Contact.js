@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import LogoComponent from "../subcomponents/LogoComponent";
 import PowerButton from "../subcomponents/PowerButton";
@@ -23,10 +23,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
-  useEffect(() => {
-    console.log("load");
-  }, []);
-
   const [loading, setLoading] = useState(false);
   function handleClick() {
     setLoading(true);
@@ -86,6 +82,10 @@ function Contact() {
           : undefined,
     };
   };
+
+  const mq = window.matchMedia("(max-width: 50em)").matches;
+  let inputWidth = "45%";
+  if (mq) inputWidth = "100%";
   return (
     <MainContainer>
       <ToastContainer
@@ -163,7 +163,7 @@ function Contact() {
                 label="First Name"
                 variant="standard"
                 color="secondary"
-                style={{ width: "45%" }}
+                style={{ width: inputWidth }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -179,7 +179,7 @@ function Contact() {
                 label="Last Name"
                 variant="standard"
                 color="secondary"
-                style={{ width: "45%" }}
+                style={{ width: inputWidth }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -197,7 +197,7 @@ function Contact() {
                 label="E-mail"
                 variant="standard"
                 color="secondary"
-                style={{ width: "45%" }}
+                style={{ width: inputWidth }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -213,7 +213,7 @@ function Contact() {
                 label="Phone"
                 variant="standard"
                 color="secondary"
-                style={{ width: "45%" }}
+                style={{ width: inputWidth }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -521,6 +521,15 @@ const FormGroup = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 567px) {
+    flex-direction: column;
+    margin-bottom: 0;
+
+    & > div {
+      margin: 10px 0;
+    }
+  }
 `;
 
 const ServiceWrap = styled.div`

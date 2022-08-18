@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import LogoComponent from "../subcomponents/LogoComponent";
 import PowerButton from "../subcomponents/PowerButton";
@@ -12,7 +12,6 @@ import disney2 from "../assets/Images/disney-mobile.png";
 import jmdMac from "../assets/Images/jmd-mac.png";
 import jmdS21 from "../assets/Images/jmd-s21.png";
 import rudraTab from "../assets/Images/rudra-tab.png";
-import rudraMac from "../assets/Images/rudra-mac.png";
 import rudraText from "../assets/Images/rudra-text.png";
 import crazyTab from "../assets/Images/crazy-tab.png";
 import crazyText from "../assets/Images/crazy-text.png";
@@ -319,7 +318,7 @@ function WorkMobile() {
     {
       img1: maharajaMac,
       img2: maharajaMob,
-      site: "https://animesh-tesla-clone.netlify.app/",
+      site: "https://maharaja-studios.netlify.app/",
       name: "Maharaja Studio",
       description: "Photography | Cinematography",
     },
@@ -331,7 +330,7 @@ function WorkMobile() {
       <LogoComponent />
       <Mobile>
         <OwlCarousel className="owl-theme" loop margin={10} items={1}>
-          <div class="item">
+          <div className="item">
             <div className="image image1">
               <img
                 src={Natours1}
@@ -345,7 +344,7 @@ function WorkMobile() {
               />
             </div>
             <div className="info">
-              <a href="" className="link">
+              <a href="https://animesh28.github.io/Natours/" className="link">
                 {work[0].site}
               </a>
               <SiteDescription>
@@ -354,7 +353,7 @@ function WorkMobile() {
               </SiteDescription>
             </div>
           </div>
-          <div class="item">
+          <div className="item">
             <div className="image image2">
               <img
                 src={disney1}
@@ -368,7 +367,10 @@ function WorkMobile() {
               />
             </div>
             <div className="info info2">
-              <a href="" className="link">
+              <a
+                href="https://disneyplus-clone-fe126.web.app/"
+                className="link"
+              >
                 {work[1].site}
               </a>
               <SiteDescription>
@@ -378,13 +380,13 @@ function WorkMobile() {
             </div>
           </div>
 
-          <div class="item">
+          <div className="item">
             <div className="image image3">
               <img src={jmdMac} className="col-img col3-img1" alt="Natours 1" />
               <img src={jmdS21} className="col-img col3-img2" alt="Natours 2" />
             </div>
             <div className="info info3">
-              <a href="" className="link">
+              <a href="https://jmddevelopers.com/" className="link">
                 {work[2].site}
               </a>
               <SiteDescription>
@@ -394,7 +396,7 @@ function WorkMobile() {
             </div>
           </div>
 
-          <div class="item">
+          <div className="item">
             <div className="image image4">
               <img
                 src={rudraText}
@@ -408,7 +410,7 @@ function WorkMobile() {
               />
             </div>
             <div className="info info4">
-              <a href="" className="link">
+              <a href="https://rudramotor.com" className="link">
                 {work[3].site}
               </a>
               <SiteDescription>
@@ -418,7 +420,7 @@ function WorkMobile() {
             </div>
           </div>
 
-          <div class="item">
+          <div className="item">
             <div className="image image5">
               <img
                 src={crazyText}
@@ -432,7 +434,7 @@ function WorkMobile() {
               />
             </div>
             <div className="info info5">
-              <a href="" className="link">
+              <a href="https://crazybakery.in/" className="link">
                 {work[4].site}
               </a>
               <SiteDescription>
@@ -442,7 +444,7 @@ function WorkMobile() {
             </div>
           </div>
 
-          <div class="item">
+          <div className="item">
             <div className="image image6">
               <img
                 src={teslaMac}
@@ -456,7 +458,10 @@ function WorkMobile() {
               />
             </div>
             <div className="info info6">
-              <a href="" className="link">
+              <a
+                href="https://animesh-tesla-clone.netlify.app/"
+                className="link"
+              >
                 {work[5].site}
               </a>
               <SiteDescription>
@@ -466,7 +471,7 @@ function WorkMobile() {
             </div>
           </div>
 
-          <div class="item">
+          <div className="item">
             <div className="image image7">
               <img
                 src={maharajaMac}
@@ -480,7 +485,7 @@ function WorkMobile() {
               />
             </div>
             <div className="info info7">
-              <a href="" className="link">
+              <a href="https://maharaja-studios.netlify.app/" className="link">
                 {work[6].site}
               </a>
               <SiteDescription>

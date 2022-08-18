@@ -1,4 +1,4 @@
-import React, { lazy, useState, Suspense } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import ContactMsg from "../subcomponents/ContactMsg";
@@ -9,13 +9,13 @@ import { YinYang } from "./AllSvgs";
 import Intro from "./Intro";
 import { motion } from "framer-motion";
 import { mediaQueries } from "./Themes";
+import useVH from "react-viewport-height";
 
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
   width: 100vw;
-  height: 100%;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 
   h2,
   h3,
@@ -165,7 +165,7 @@ const Main = () => {
   const [path, setpath] = useState("");
 
   const handleYingYang = () => setYingYang(!YingYang);
-
+  const vh = useVH();
   const moveY = {
     y: "-100%",
   };
@@ -181,6 +181,8 @@ const Main = () => {
       animate={{ opacity: 1 }}
       exit={path === "about" || path === "skills" ? moveY : moveX}
       transition={{ duration: 0.5 }}
+      div
+      style={{ height: `${100 * vh}px` }}
     >
       <DarkDiv click={YingYang} />
       <Container>

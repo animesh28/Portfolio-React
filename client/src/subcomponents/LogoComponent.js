@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { darkTheme } from "../components/Themes";
 import logo from "../assets/Images/logo.png";
 
 function LogoComponent() {
@@ -14,7 +13,7 @@ function LogoComponent() {
 const Logo = styled.h1`
   display: inline-block;
   font-family: "Pacifico", cursive !important;
-  position: fixed;
+  position: absolute;
   top: 2rem;
   left: 2rem;
   z-index: 30;
