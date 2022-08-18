@@ -67,6 +67,7 @@ const IconLicense = styled.div`
   right: 2.5rem;
   cursor: pointer;
   z-index: 10;
+  caret-color: rgba(0, 0, 0, 0);
 
   img {
     max-height: 100%;

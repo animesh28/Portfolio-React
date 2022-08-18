@@ -17,6 +17,7 @@ const Logo = styled.h1`
   top: 2rem;
   left: 2rem;
   z-index: 30;
+  caret-color: rgba(0, 0, 0, 0);
 
   img {
     height: 75px;
