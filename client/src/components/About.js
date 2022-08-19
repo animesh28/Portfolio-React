@@ -409,7 +409,7 @@ function About() {
           <NavLink
             style={{ color: "inherit" }}
             target="_blank"
-            to={{ pathname: "https://google.co.in/" }}
+            to={{ pathname: "https://wa.me/message/5SUJFL454E7OJ1" }}
           >
             <Whatsapp height={25} width={25} style={{ fill: "#fff" }} />
           </NavLink>
@@ -431,7 +431,7 @@ function About() {
           <NavLink
             style={{ color: "inherit" }}
             target="_blank"
-            to={{ pathname: "https://google.co.in/" }}
+            to={{ pathname: "https://github.com/animesh28" }}
           >
             <Github height={25} width={25} style={{ fill: "#fff" }} />
           </NavLink>
@@ -453,7 +453,9 @@ function About() {
           <NavLink
             style={{ color: "inherit" }}
             target="_blank"
-            to={{ pathname: "https://google.co.in/" }}
+            to={{
+              pathname: "https://www.linkedin.com/in/animesh-singh-02a9b417b/",
+            }}
           >
             <LinkedIn height={25} width={25} style={{ fill: "#fff" }} />
           </NavLink>
