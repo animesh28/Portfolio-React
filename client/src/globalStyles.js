@@ -16,6 +16,11 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     overflow-x: hidden;
     font-family: 'Source Sans Pro', sans-serif;
+    caret-color: rgba(0,0,0,0) !important;
+ }
+
+ input {
+   caret-color: rgba(0,0,0,1) !important;
  }
 
  .st0{fill:#2f3131;}
