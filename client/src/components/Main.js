@@ -10,8 +10,7 @@ import Intro from "./Intro";
 import { motion } from "framer-motion";
 import { mediaQueries } from "./Themes";
 import useVH from "react-viewport-height";
-import { Back } from "gsap";
-import { TweenLite, Timeline } from "gsap/gsap-core";
+import gsap from "gsap";
 import { useHistory } from "react-router-dom";
 
 const MainContainer = styled(motion.div)`
@@ -173,7 +172,7 @@ const Main = () => {
     const envLid = document.querySelector("#env-lid");
     const envPaper = document.querySelector("#env-paper");
 
-    const tl = new Timeline({
+    const tl = gsap.timeline({
       paused: true,
     });
 
