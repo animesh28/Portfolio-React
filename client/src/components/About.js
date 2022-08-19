@@ -18,9 +18,10 @@ const AboutWrap = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;
+  overflow-x: hidden;
 
   @media screen and (max-width: 576px) {
-    padding: 2.5rem;
+    padding: 0;
     background: linear-gradient(to right, #000428, #004e92, #000428);
     background-repeat: repeat-y;
     height: auto;
@@ -70,7 +71,7 @@ const TimelineWrap = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
-    width: 80vw;
+    width: 100vw;
     height: 80vh;
     padding-top: 90px;
   }
@@ -98,10 +99,11 @@ const AboutQuote = styled.h1`
   @media screen and (max-width: 576px) {
     font-size: 30px;
     position: relative;
-    margin: 0 2.5rem;
-    margin-top: 10vh;
+    margin-top: -10vh;
     height: 40vh;
     width: 60vw;
+    display: flex;
+    width: 100vw;
   }
 
   &::after {
@@ -227,6 +229,8 @@ const AboutEmoji = styled.div`
   @media screen and (max-width: 576px) {
     position: relative;
     margin-top: 10vh;
+    margin-right: 0;
+    margin-left: 2rem;
   }
 
   img {
@@ -323,7 +327,9 @@ const ContactInfo = styled.div`
     position: relative;
     flex-direction: column;
     margin-top: 4rem;
-    width: 90vw;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
 
     a {
       margin: 3vh 0;

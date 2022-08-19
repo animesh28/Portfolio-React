@@ -29,6 +29,7 @@ const Box = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  caret-color: rgba(0, 0, 0, 0);
 
   ${mediaQueries(50)`
             flex-direction:column;  
