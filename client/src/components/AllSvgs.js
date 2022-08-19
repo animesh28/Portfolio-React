@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { TimelineLite } from "gsap/gsap-core";
 import { Back } from "gsap";
 import { TweenLite } from "gsap/gsap-core";
 import { useHistory } from "react-router-dom";
+import { Timeline } from "gsap/gsap-core";
 
 export const PowerBtn = (props) => {
   return (
@@ -205,7 +205,7 @@ export const Email = (props) => {
     var envLid = document.querySelector("#env-lid");
     var envPaper = document.querySelector("#env-paper");
 
-    var tl = new TimelineLite({
+    var tl = new Timeline({
       paused: true,
     });
 
