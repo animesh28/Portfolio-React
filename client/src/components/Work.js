@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { Timeline } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/all";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import SvgSlider from "../subcomponents/SvgSlider";
@@ -48,6 +49,7 @@ function Work() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
 
     let t1 = new Timeline({ delay: 0.3 });
 
