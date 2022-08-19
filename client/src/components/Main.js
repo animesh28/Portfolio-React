@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import ContactMsg from "../subcomponents/ContactMsg";
@@ -10,6 +10,9 @@ import Intro from "./Intro";
 import { motion } from "framer-motion";
 import { mediaQueries } from "./Themes";
 import useVH from "react-viewport-height";
+import { Back } from "gsap";
+import { TweenLite, Timeline } from "gsap/gsap-core";
+import { useHistory } from "react-router-dom";
 
 const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
@@ -161,6 +164,62 @@ const DarkDiv = styled.div`
 `;
 
 const Main = () => {
+  const history = useHistory();
+  useEffect(() => {
+    const line1 = document.querySelector("#env-line-1");
+    const line2 = document.querySelector("#env-line-2");
+    const line3 = document.querySelector("#env-line-3");
+    const mailIcon = document.querySelector("#mail-icon");
+    const envLid = document.querySelector("#env-lid");
+    const envPaper = document.querySelector("#env-paper");
+
+    const tl = new Timeline({
+      paused: true,
+    });
+
+    tl.to(envLid, 0.3, {
+      scaleY: -1,
+      y: 1.5,
+    })
+      .fromTo(
+        envPaper,
+        0.4,
+        {
+          transformOrigin: "50% 100%",
+          scaleY: 0,
+        },
+        {
+          scaleY: 1,
+        },
+        "=-0.25"
+      )
+      .staggerFromTo(
+        [line1, line2, line3],
+        0.3,
+        {
+          transformOrigin: "50% 50%",
+          scaleX: 0,
+        },
+        {
+          scaleX: 1,
+        },
+        -0.09
+      );
+
+    mailIcon.addEventListener("click", (event) => {
+      if (mailIcon.classList.contains("toggled")) {
+        tl.reverse();
+      } else {
+        tl.play();
+        setTimeout(() => {
+          history.push("/contact");
+        }, 2000);
+      }
+
+      mailIcon.classList.toggle("toggled");
+    });
+  }, [history]);
+
   const [YingYang, setYingYang] = useState(false);
   const [path, setpath] = useState("");
 

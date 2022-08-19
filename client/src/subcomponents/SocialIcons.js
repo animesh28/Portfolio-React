@@ -131,8 +131,8 @@ function SocialIcons(props) {
           to={{ pathname: "https://www.instagram.com/_ani_mesh._/" }}
         >
           <Instagram
-            width={22}
-            height={22}
+            width={25}
+            height={25}
             fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
           />
         </NavLink>

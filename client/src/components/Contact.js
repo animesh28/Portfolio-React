@@ -351,7 +351,7 @@ const MainContainer = styled.div`
   min-height: 100vh;
   height: auto;
   background-color: #f9f9fb;
-  padding: 5rem 8rem;
+  padding: 3rem 8rem;
   padding-bottom: 2rem;
   overflow: hidden;
   display: flex;

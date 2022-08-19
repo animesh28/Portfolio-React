@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LogoComponent from "../subcomponents/LogoComponent";
 import PowerButton from "../subcomponents/PowerButton";
-import { LinkedIn, Github, Whatsapp } from "./AllSvgs";
+import { LinkedIn, Github, WhatsappOutlined } from "./AllSvgs";
 import AboutTimeline from "../subcomponents/Timeline";
 import elon from "../assets/Images/elon.jpg";
 import sign from "../assets/Images/signature.png";
@@ -411,7 +411,7 @@ function About() {
             target="_blank"
             to={{ pathname: "https://wa.me/message/5SUJFL454E7OJ1" }}
           >
-            <Whatsapp height={25} width={25} style={{ fill: "#fff" }} />
+            <WhatsappOutlined height={25} width={25} style={{ fill: "#fff" }} />
           </NavLink>
         </motion.div>
 
