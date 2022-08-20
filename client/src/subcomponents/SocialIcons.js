@@ -1,6 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { LinkedIn, Github, Whatsapp, Instagram } from "../components/AllSvgs";
+import {
+  LinkedIn,
+  Github,
+  Whatsapp,
+  Instagram,
+  YinYang,
+} from "../components/AllSvgs";
 import styled from "styled-components";
 import { darkTheme } from "../components/Themes";
 import { motion } from "framer-motion";
@@ -56,7 +62,7 @@ function SocialIcons(props) {
           <Github
             width={25}
             height={25}
-            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+            fill={props.click ? `${darkTheme.text}` : `${darkTheme.body}`}
           />
         </NavLink>
       </motion.div>
@@ -83,7 +89,7 @@ function SocialIcons(props) {
           <LinkedIn
             width={25}
             height={25}
-            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+            fill={YinYang ? darkTheme.text : darkTheme.body}
           />
         </NavLink>
       </motion.div>
