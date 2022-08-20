@@ -89,7 +89,7 @@ function SocialIcons(props) {
           <LinkedIn
             width={25}
             height={25}
-            fill={YinYang ? darkTheme.text : darkTheme.body}
+            fill={props.click ? darkTheme.text : darkTheme.body}
           />
         </NavLink>
       </motion.div>
@@ -114,7 +114,7 @@ function SocialIcons(props) {
           <Whatsapp
             width={25}
             height={25}
-            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+            fill={props.click ? darkTheme.text : darkTheme.body}
           />
         </NavLink>
       </motion.div>
@@ -139,7 +139,7 @@ function SocialIcons(props) {
           <Instagram
             width={25}
             height={25}
-            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+            fill={props.click ? darkTheme.text : darkTheme.body}
           />
         </NavLink>
       </motion.div>
